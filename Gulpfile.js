@@ -25,10 +25,6 @@ const sourcemaps    = require('gulp-sourcemaps')
 const uglify        = require('gulp-uglify')
 const util          = require('gulp-util')
 
-//  Should we be minifying asets on compilation?
-let minify_assets = false
-let write_banners = false
-
 //  Set banner template
 const banner = [
   '/**',
@@ -64,17 +60,18 @@ let progress = (message, file) => {
 }
 
 let process_images = (config) => {
-  const dest_dir = config.dest_dir
+  const dest_dir   = config.dest.dir
+  const source_dir = config.source.dir
 
-  let stream = gulp.src(config.source + '/**/*')
+  let stream = gulp.src(source_dir + '/**/*')
     .pipe(plumber({
       errorHandler: handleError
     })).on('end', () => {
-      progress(config.source + ' - Begin image compression')
+      progress(source_dir + ' - Begin image compression')
     })
 
   stream = stream.pipe(imagemin()).on('end', () => {
-    progress(config.dest_dir + ' - Images compressed')
+    progress(dest_dir + ' - Images compressed')
   })
 
   stream = stream.pipe(gulp.dest(dest_dir)).on('end', () => {
@@ -84,124 +81,109 @@ let process_images = (config) => {
   return stream
 }
 
-let process_javascripts = (config, minify) => {
-  if (undefined === minify) {
-    minify = false
-  }
+let process_javascripts = (config) => {
+  const dest_dir    = config.dest.dir
+  const source_dir  = config.source.dir
+  const dest_file   = config.dest.file
+  const source_file = config.source.file
 
-  const main     = config.main
-  const dest_dir = config.dest_dir
-
-  let stream = gulp.src(config.source + '/' + main)
+  let stream = gulp.src(source_dir + '/' + source_file)
     .pipe(plumber({
       errorHandler: handleError
     })).on('end', () => {
-      progress('Begin Compilation', main)
+      progress('Begin Compilation', source_file)
     })
 
-  if (minify) {
-    stream = stream.pipe(sourcemaps.init()).on('end', () => {
-      progress('Init Sourcemap', main)
-    })
-  }
-
-  stream = stream.pipe(babel()).on('end', () => {
-    progress('Transpiling ES6', main)
+  stream = stream.pipe(sourcemaps.init()).on('end', () => {
+    progress('Init Sourcemap', source_file)
   })
 
-  if (minify) {
-    stream = stream.pipe(uglify()).on('end', () => {
-      progress('Uglifying', main)
-    })
-
-    stream = stream.pipe(rename({ extname: '.min.js' })).on('end', () => {
-      progress('Renaming file', main)
-    })
-  }
-
-  if (write_banners) {
-    stream = stream.pipe(header(banner, {
-      dest_file: minify ? config.min_file : config.dest_file,
-      pkg:       require('./package.json')
-    })).on('end', () => {
-      progress('Creating banner', main)
-    })
-  }
-
-  if (minify) {
-    stream = stream.pipe(sourcemaps.write('.')).on('end', () => {
-      progress('Generating Sourcemap', main)
-    })
-  }
+  stream = stream.pipe(babel()).on('end', () => {
+    progress('Transpiling ES6', source_file)
+  })
 
   stream = stream.pipe(gulp.dest(dest_dir)).on('end', () => {
-    progress('Writing file to ' + dest_dir, main)
-    notify(main + ' compiled')
+    progress('Writing file to ' + dest_dir, source_file)
   }).on('error', handleError)
 
-  if (!minify && minify_assets) {
-    stream = process_javascripts(config, true)
-  }
+  stream = stream.pipe(uglify()).on('end', () => {
+    progress('Uglifying', source_file)
+  })
+
+  stream = stream.pipe(rename({ extname: '.min.js' })).on('end', () => {
+    progress('Renaming file', source_file)
+  })
+
+  stream = stream.pipe(header(banner, {
+    dest_file: dest_file,
+    pkg:       require('./package.json')
+  })).on('end', () => {
+    progress('Creating banner', source_file)
+  })
+
+  stream = stream.pipe(sourcemaps.write('.')).on('end', () => {
+    progress('Generating Sourcemap', source_file)
+  })
+
+  stream = stream.pipe(gulp.dest(dest_dir)).on('end', () => {
+    progress('Writing file to ' + dest_dir, source_file)
+    notify(source_file + ' compiled')
+  }).on('error', handleError)
 
   return stream
 }
 
-let process_stylesheets = (config, minify = false) => {
-  let main     = config.main
-  let dest_dir = config.dest_dir
-  let stream   = gulp.src(config.source + '/' + main)
+let process_stylesheets = (config) => {
+  const dest_dir    = config.dest.dir
+  const source_dir  = config.source.dir
+  const dest_file   = config.dest.file
+  const source_file = config.source.file
+
+  let stream = gulp.src(source_dir + '/' + source_file)
     .pipe(plumber({
       errorHandler: handleError
     })).on('end', () => {
-      progress('Begin Compilation', main)
+      progress('Begin Compilation', source_file)
     })
 
-  if (minify) {
-    stream = stream.pipe(sourcemaps.init()).on('end', () => {
-      progress('Init Sourcemap', main)
-    })
-  }
+  stream = stream.pipe(sourcemaps.init()).on('end', () => {
+    progress('Init Sourcemap', source_file)
+  })
 
   stream = stream.pipe(sass()).on('end', () => {
-    progress('Compile Sass', main)
+    progress('Compile Sass', source_file)
   })
 
   stream = stream.pipe(autoprefixer()).on('end', () => {
-    progress('Autoprefixing', main)
+    progress('Autoprefixing', source_file)
   })
 
-  if (minify) {
-    stream = stream.pipe(cssnano()).on('end', () => {
-      progress('Minifying Compiled Styles', main)
-    })
-
-    stream = stream.pipe(rename({ extname: '.min.css' })).on('end', () => {
-      progress('Renaming file', main)
-    })
-  }
-
-  if (write_banners) {
-    stream = stream.pipe(header(banner, {
-      dest_file: minify ? config.min_file : config.dest_file,
-      pkg:       require('./package.json')
-    })).on('end', () => {
-      progress('Creating banner', main)
-    })
-  }
-
-  if (minify) {
-    stream = stream.pipe(sourcemaps.write('.')).on('end', () => {
-      progress('Generating Sourcemap', main)
-    })
-  }
-
   stream = stream.pipe(gulp.dest(dest_dir)).on('end', () => {
-    progress('Writing file to ' + dest_dir, main)
+    progress('Writing file to ' + dest_dir, source_file)
   }).on('error', handleError)
 
-  if (!minify && minify_assets) {
-    stream = process_stylesheets(config, true)
-  }
+  stream = stream.pipe(cssnano()).on('end', () => {
+    progress('Minifying Compiled Styles', source_file)
+  })
+
+  stream = stream.pipe(rename({ extname: '.min.css' })).on('end', () => {
+    progress('Renaming file', source_file)
+  })
+
+  stream = stream.pipe(header(banner, {
+    dest_file: dest_file,
+    pkg:       require('./package.json')
+  })).on('end', () => {
+    progress('Creating banner', source_file)
+  })
+
+  stream = stream.pipe(sourcemaps.write('.')).on('end', () => {
+    progress('Generating Sourcemap', source_file)
+  })
+
+  stream = stream.pipe(gulp.dest(dest_dir)).on('end', () => {
+    progress('Writing file to ' + dest_dir, source_file)
+  }).on('error', handleError)
 
   return stream
 }
