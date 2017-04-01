@@ -1,0 +1,298 @@
+
+//  Setup Box Sizing
+
+*, *:before, *:after {
+	@include box-sizing(border-box);
+}
+
+//	CLEARFIX ALL THE THINGS
+
+article, div, dl, fieldset, footer, form,
+header, main, ol, section, nav, ul {
+	@extend %clearfix;
+}
+
+//  Sort the body's defaults out
+
+html {
+	background: $color-bg;
+	height:     100%;
+	width:      100%;
+}
+
+	body {
+		color:            $color-text;
+		font-family:      $font-family-primary;
+		font-size:        $font-size;
+		font-weight:      $font-weight;
+		height:           100%;
+		line-height:      $line-height;
+		margin:           0;
+		overflow:         hidden;
+		padding:          0;
+		position:         relative;
+		text-rendering:   optimizeLegibility;
+		text-size-adjust: 100%;
+		width:            100%;
+	}
+
+//	Base element styles
+
+a {
+	color:           $color-links;
+	cursor:          pointer;
+	text-decoration: underline;
+
+	&:active,
+	&:focus,
+	&:hover {
+		color:           $color-links-active;
+		text-decoration: none;
+	}
+
+	&:visited {
+		color:           $color-links-visited;
+		text-decoration: none;
+	}
+
+	.text-success &,
+	&.text-success {
+		color: $color-green;
+
+		&:active,
+		&:focus,
+		&:hover,
+		&:visited {
+			color: $color-green-d;
+		}
+	}
+
+	.text-warning &,
+	&.text-warning {
+		color: $color-orange;
+
+		&:active,
+		&:focus,
+		&:hover,
+		&:visited {
+			color: $color-orange-d;
+		}
+	}
+
+	.text-danger &,
+	&.text-danger {
+		color: $color-red;
+
+		&:active,
+		&:focus,
+		&:hover,
+		&:visited {
+			color: $color-red-d;
+		}
+	}
+}
+
+address {
+	font-style: normal;
+}
+
+b {
+	font-weight: $font-weight-bold;
+}
+
+blockquote {
+	margin:        0;
+	margin-bottom: $baseline-unit-px;
+
+	p:before,
+	p:after {
+		display:     inline-block;
+		line-height: 0;
+	}
+
+	p:first-child:before {
+		content: '\201C';
+	}
+
+	p:last-of-type:after {
+		content: '\201D';
+	}
+}
+
+button {
+	border:      none;
+	font-family: $font-family-primary;
+}
+
+cite {
+	display:    block;
+	text-align: right;
+}
+
+code {
+	font-family: $font-family-primary;
+}
+
+dl {
+	margin: 0;
+	margin-bottom: $baseline-unit-px;
+
+	dd {
+		margin-left: $baseline-unit-px;
+	}
+
+	dt {
+		margin: 0;
+	}
+}
+
+em {
+	font-style: italic;
+}
+
+figure {
+	display:       block;
+	margin-bottom: $baseline-unit-px;
+
+	img {
+		display:   block;
+		max-width: 100%;
+	}
+
+	figcaption {
+		font-style: italic;
+	}
+}
+
+i {
+	font-style: italic;
+}
+
+input {
+	font-family: $font-family-primary;
+
+	::-webkit-input-placeholder {
+		color: rgba($color-grey, 0.25);
+	}
+
+	:-moz-placeholder {
+		color: rgba($color-grey, 0.25);
+	}
+
+	::-moz-placeholder {
+		color: rgba($color-grey, 0.25);
+	}
+
+	:-ms-input-placeholder {
+		color: rgba($color-grey, 0.25);
+	}
+}
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+	font-weight: $font-weight;
+	margin:      0 0 0.5em;
+	padding:     0;
+}
+
+h1, .h1 {
+	font-size:   $font-size-h1;
+	font-weight: $font-weight-h1;
+	line-height: $line-height-h1;
+}
+
+h2, .h2 {
+	font-size:   $font-size-h2;
+	font-weight: $font-weight-h2;
+	line-height: $line-height-h2;
+}
+
+h3, .h3 {
+	font-size:   $font-size-h3;
+	font-weight: $font-weight-h3;
+	line-height: $line-height-h3;
+}
+
+h4, .h4 {
+	font-size:   $font-size-h4;
+	font-weight: $font-weight-h4;
+	line-height: $line-height-h4;
+}
+
+label {
+	margin: 0;
+}
+
+ol {
+	margin:        0;
+	margin-bottom: $baseline-unit-px;
+
+	li {
+		list-style: decimal;
+	}
+
+	ol, ul {
+		margin-bottom: 0;
+	}
+}
+
+code, dl, ol,
+
+p {
+	margin:        0;
+	margin-bottom: $baseline-unit-px;
+}
+
+	.lead {
+		font-size:  $font-size-large;
+		font-style: italic;
+	}
+
+pre {
+	margin:        0;
+	margin-bottom: $baseline-unit-px;
+}
+
+select {
+	font-family: $font-family-primary;
+}
+
+strong {
+	font-weight: $font-weight-bold;
+}
+
+table {
+	border-collapse: collapse;
+	margin-bottom:   $baseline-unit-px;
+
+	td, th {
+		margin: 0;
+	}
+}
+
+textarea {
+	font-family: $font-family-primary;
+	resize:      vertical;
+}
+
+time {
+	display:   inline-block;
+	font-size: $font-size-small;
+}
+
+ul {
+	margin:        0;
+	margin-bottom: $baseline-unit-px;
+
+	li {
+		list-style: disc;
+	}
+
+	ol, ul {
+		margin-bottom: 0;
+	}
+}

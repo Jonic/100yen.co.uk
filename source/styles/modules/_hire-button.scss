@@ -1,0 +1,26 @@
+
+$button-color: #27AE60;
+
+.hire-button {
+	background:      $button-color;
+	border-radius:   5px;
+	color:           #fff;
+	display:         inline-block;
+	height:          2em;
+	line-height:     2em;
+	margin:          0.5em 0;
+	padding:         0 1em;
+	text-decoration: none;
+	transition:      background 0.3s;
+
+	&:hover {
+		background: lighten($button-color, 10);
+		color:      #fff;
+	}
+
+	&:active {
+		color:    #fff;
+		position: relative;
+		top:      1px;
+	}
+}
