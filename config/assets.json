@@ -1,20 +1,30 @@
 {
   "images": {
-    "source":    "./assets/images",
-    "dest_dir":  "./public/assets/images"
+    "source": {
+      "dir": "./assets/images"
+    },
+    "dest": {
+      "dir": "./public/assets/images"
+    }
   },
   "javascripts": {
-    "source":    "./assets/javascripts",
-    "main":      "application.js",
-    "dest_dir":  "./public/assets/javascripts",
-    "dest_file": "application.js",
-    "min_file":  "application.min.js"
+    "source": {
+      "dir":  "./assets/javascripts",
+      "file": "application.js"
+    },
+    "dest": {
+      "dir":  "./public/assets/javascripts",
+      "file": "application.min.js"
+    }
   },
   "stylesheets": {
-    "source":    "./assets/stylesheets",
-    "main":      "application.scss",
-    "dest_dir":  "./public/assets/stylesheets",
-    "dest_file": "application.css",
-    "min_file":  "application.min.css"
+    "source": {
+      "dir":  "./assets/stylesheets",
+      "file": "application.scss"
+    },
+    "dest": {
+      "dir":  "./public/assets/stylesheets",
+      "file": "application.min.css"
+    }
   }
 }
