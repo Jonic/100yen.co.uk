@@ -4,7 +4,7 @@
       "dir": "./assets/images"
     },
     "dest": {
-      "dir": "./public/assets/images"
+      "dir": "./public/images"
     }
   },
   "javascripts": {
@@ -13,7 +13,7 @@
       "file": "application.js"
     },
     "dest": {
-      "dir":  "./public/assets/javascripts",
+      "dir":  "./public/javascripts",
       "file": "application.min.js"
     }
   },
@@ -23,7 +23,7 @@
       "file": "application.scss"
     },
     "dest": {
-      "dir":  "./public/assets/stylesheets",
+      "dir":  "./public/stylesheets",
       "file": "application.min.css"
     }
   }
