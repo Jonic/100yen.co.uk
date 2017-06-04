@@ -47,6 +47,7 @@ header:after, main:after, ol:after, section:after, nav:after, ul:after {
   visibility: hidden; }
 
 *, *:before, *:after {
+  -webkit-box-sizing: border-box;
   -ms-box-sizing: border-box;
   -o-box-sizing: border-box;
   box-sizing: border-box; }
@@ -69,6 +70,7 @@ body {
   position: relative;
   text-rendering: optimizeLegibility;
   -webkit-text-size-adjust: 100%;
+     -moz-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
           text-size-adjust: 100%;
   width: 100%; }
