@@ -54,16 +54,16 @@ header:after, main:after, ol:after, section:after, nav:after, ul:after {
 
 html {
   background: #ecf0f1;
-  height: 100%;
+  height: 100vh;
   position: fixed;
-  width: 100%; }
+  width: 100vw; }
 
 body {
   color: #444;
   font-family: "brandon-grotesque-1", "brandon-grotesque-2", sans-serif;
   font-size: 22px;
   font-weight: 400;
-  height: 100%;
+  height: 100vh;
   line-height: 34px;
   margin: 0;
   overflow: hidden;
@@ -74,7 +74,7 @@ body {
      -moz-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
           text-size-adjust: 100%;
-  width: 100%; }
+  width: 100vw; }
 
 a {
   color: #3C8FC7;
@@ -273,7 +273,7 @@ ul {
     top: 1px; }
 
 .site-footer {
-  bottom: 0;
+  bottom: 5vh;
   left: 0;
   padding: 0 1em;
   position: absolute;
@@ -306,7 +306,7 @@ ul {
     width: 100%; }
 
 .social-list {
-  margin: 0 0 1em;
+  margin: 0;
   padding: 0;
   text-align: center; }
 
