@@ -55,6 +55,7 @@ header:after, main:after, ol:after, section:after, nav:after, ul:after {
 html {
   background: #ecf0f1;
   height: 100%;
+  position: fixed;
   width: 100%; }
 
 body {
@@ -67,7 +68,7 @@ body {
   margin: 0;
   overflow: hidden;
   padding: 0;
-  position: relative;
+  position: fixed;
   text-rendering: optimizeLegibility;
   -webkit-text-size-adjust: 100%;
      -moz-text-size-adjust: 100%;
