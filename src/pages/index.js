@@ -3,7 +3,7 @@ import React from 'react'
 
 const IndexPage = () => (
   <Layout>
-    <h1>Hi people</h1>
+    <h1>Hello, friend :)</h1>
   </Layout>
 )
 

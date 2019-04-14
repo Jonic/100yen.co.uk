@@ -1,9 +1,10 @@
 const twitter = '@Jonic'
-const description = ''
+const description = 'Websites and other stuff by Jonic Linley'
 
 module.exports = {
   meta: [
     { name: 'author', content: 'Jonic' },
+    { name: 'apple-mobile-web-app-title', content: '100yen' },
     { name: 'description', content: description },
     { name: 'charset', content: 'UTF-8' },
     { name: 'description', content: description },

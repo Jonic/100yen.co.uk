@@ -11,9 +11,10 @@ dotenv.config({
 const gatsbyConfig = {
   siteMetadata: {
     env: {
-      baseHref: process.env.BASE_HREF,
-      fontsUrl: 'https://fonts.googleapis.com/css?family=Rubik:300,500,700',
-      googleAnalyticsId: process.env.GOOGLE_ANALYTICS_TRACKING_ID,
+      baseHref: `https://www.100yen.co.uk`,
+      googleAnalyticsId: process.env.REACT_APP_GOOGLE_ANALYTICS_ID || '',
+      googleSiteVerification: process.env.REACT_APP_GOOGLE_VERIFICATION || '',
+      typekitId: `tgw1nyv`,
     },
     ...configMeta,
   },

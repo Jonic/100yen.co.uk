@@ -3,9 +3,10 @@ const browserslist = require('browserslist')
 const sass = require('sass')
 
 module.exports = [
-  'gatsby-plugin-react-helmet',
+  `gatsby-plugin-netlify-cms`,
+  `gatsby-plugin-react-helmet`,
   {
-    resolve: 'gatsby-plugin-sass',
+    resolve: `gatsby-plugin-sass`,
     options: {
       implementation: sass,
       postCssPlugins: [
