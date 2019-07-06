@@ -1,0 +1,31 @@
+---
+coverFormat: png
+globalStyles: true
+sectionStyles: false
+styles: true
+useFooter: true
+useHeader: true
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% include 'siteHead.njk' %}
+  </head>
+
+  <body>
+    {% if useHeader %}
+      {% include 'header.njk' %}
+    {% endif %}
+
+    {{ content | safe }}
+
+    {% if useFooter %}
+      {% include 'footer.njk' %}
+    {% endif %}
+
+    {% include 'siteFooter.njk' %}
+  </body>
+</html>
+
+
+

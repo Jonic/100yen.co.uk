@@ -1,16 +1,7 @@
 # https://www.netlify.com/docs/netlify-toml-reference/
 [build]
-  publish = "build/"
   command = "npm run build"
-
-[build.environment]
-  NODE_PATH = "./src"
-  REACT_APP_GOOGLE_ANALYTICS_ID = "UA-12345678-9"
-  REACT_APP_GOOGLE_VERIFICATION = "whatevs"
-
-[context.production.environment]
-  REACT_APP_GOOGLE_VERIFICATION = "EJOTQWsVwuMA6tjtdmDXM0v8ejx4G12gMnu9MKnT5f4"
-  REACT_APP_GA_ID = "UA-85981-5"
+  publish = "public/"
 
 [[headers]]
   for = "/*"
