@@ -1,89 +1,46 @@
 {
   "private": true,
   "name": "100yen",
-  "description": "My personal site",
+  "description": "My god damn website",
   "version": "2019.0.0",
-  "author": "Jonic <jonic@100yen.co.uk>",
+  "author": {
+    "name": "Jonic Linley",
+    "url": "https://www.100yen.co.uk"
+  },
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write 'src/**/*.js'",
-    "lint": "eslint src/. --ext .js; exit 0;",
-    "lint-fix": "eslint src/. --ext .js --fix; exit 0;",
-    "lint:staged": "lint-staged",
-    "start": "gatsby serve",
-    "test": "jest --notify --runInBand --watchAll",
-    "test-coverage": "jest --coverage --runInBand"
+    "build": "ELEVENTY_ENV=prod eleventy",
+    "start": "netlify dev -c 'ELEVENTY_ENV=dev eleventy --serve'",
+    "lint:staged": "lint-staged"
+  },
+  "dependencies": {
+    "@11ty/eleventy": "0.8.3",
+    "dotenv": "^8.0.0",
+    "fibers": "^4.0.1",
+    "he": "^1.2.0",
+    "html-minifier": "3.5.21",
+    "luxon": "1.15.0",
+    "netlify-cli": "^2.11.23"
   },
   "devDependencies": {
-    "babel-eslint": "^10.0.1",
-    "babel-jest": "^24.7.1",
-    "babel-preset-gatsby": "^0.1.11",
-    "enzyme": "^3.9.0",
-    "enzyme-adapter-react-16": "^1.12.1",
-    "eslint": "^5.16.0",
-    "eslint-config-prettier": "^4.1.0",
-    "eslint-plugin-jest": "^22.4.1",
-    "eslint-plugin-jsx-a11y": "^6.2.1",
-    "eslint-plugin-prettier": "^3.0.1",
-    "eslint-plugin-react": "^7.12.4",
-    "eslint-plugin-react-hooks": "^1.6.0",
-    "identity-obj-proxy": "^3.0.0",
-    "jest": "^24.7.1",
-    "jest-environment-enzyme": "^7.0.2",
-    "jest-environment-jsdom": "^24.7.1",
-    "jest-environment-jsdom-global": "^1.2.0",
-    "jest-enzyme": "^7.0.2",
-    "jest-fetch-mock": "^2.1.2",
-    "jest-plugin-context": "^2.9.0",
-    "lint-staged": "^8.1.5",
-    "prettier": "^1.17.0",
-    "prettier-package-json": "^2.1.0",
-    "prettier-stylelint": "^0.4.2",
-    "react-test-renderer": "^16.8.6",
-    "sass": "^1.18.0",
-    "stylelint": "^10.0.0",
-    "stylelint-config-recommended-scss": "^3.2.0",
-    "stylelint-config-standard": "^18.3.0",
-    "stylelint-order": "^2.2.1",
-    "stylelint-scss": "^3.5.4"
+    "babel-eslint": "10.0.1",
+    "eslint": "5.16.0",
+    "eslint-config-prettier": "4.3.0",
+    "eslint-plugin-prettier": "3.1.0",
+    "lint-staged": "8.1.6",
+    "prettier": "1.17.0",
+    "prettier-package-json": "2.1.0",
+    "prettier-stylelint": "0.4.2",
+    "stylelint": "10.0.1",
+    "stylelint-config-standard": "18.3.0",
+    "stylelint-order": "3.0.0"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/jonic/100yen.co.uk"
   },
-  "dependencies": {
-    "autoprefixer": "^9.5.1",
-    "classnames": "^2.2.6",
-    "dotenv": "^7.0.0",
-    "gatsby": "^2.3.22",
-    "gatsby-image": "^2.0.38",
-    "gatsby-plugin-netlify-cms": "^3.0.17",
-    "gatsby-plugin-react-helmet": "^3.0.12",
-    "gatsby-plugin-sass": "^2.0.11",
-    "netlify-cms": "^2.9.1",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-helmet": "^5.2.0",
-    "react-router-dom": "^5.0.0"
-  },
   "engines": {
-    "node": "10.15.3"
-  },
-  "lint-staged": {
-    "*.js": [
-      "eslint --fix",
-      "git add"
-    ],
-    "*.scss": [
-      "stylelint --fix --syntax=scss",
-      "git add"
-    ],
-    "package.json": [
-      "prettier-package-json --write",
-      "git add"
-    ]
+    "node": "10.16.0"
   },
   "pre-commit": "lint:staged"
 }
