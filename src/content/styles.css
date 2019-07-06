@@ -1,0 +1,119 @@
+.o-home {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  position: relative;
+  width: 100vw;
+  z-index: 10;
+}
+
+.c-home-logo {
+  line-height: 1;
+  margin: 0 auto;
+}
+
+.c-home-logo svg {
+  max-width: 470px;
+  width: 100%;
+}
+
+.c-home-chat {
+  margin: 0;
+}
+
+.c-home-social {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0 0;
+  padding: 0;
+}
+
+.c-home-social__item {
+  line-height: 30px;
+  list-style: none;
+  margin: 0 5px;
+  text-align: left;
+}
+
+.c-home-social__link {
+  background: url('./_images/social-links.svg');
+  background-size: auto 30px;
+  display: block;
+  height: 30px;
+  text-indent: -10000px;
+  width: 30px;
+}
+
+.c-home-social__link:hover {
+  color: #3c8fc7;
+  transition-duration: 0.15s;
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.c-home-social__link:visited {
+  color: #444;
+}
+
+.c-home-social__link:visited:hover {
+  color: #3c8fc7;
+}
+
+.c-home-social__link--twitter {
+  background-position: -150px center;
+}
+
+.c-home-social__link--twitter:hover {
+  transform: rotate(3deg) scale(1.2) translateY(-20%);
+}
+
+.c-home-social__link--tumblr {
+  background-position: -120px center;
+}
+
+.c-home-social__link--tumblr:hover {
+  transform: rotate(-2deg) scale(1.2) translateY(-20%);
+}
+
+.c-home-social__link--github {
+  background-position: -30px center;
+}
+
+.c-home-social__link--github:hover {
+  transform: rotate(2deg) scale(1.2) translateY(-20%);
+}
+
+.c-home-social__link--instagram {
+  background-position: -60px center;
+}
+
+.c-home-social__link--instagram:hover {
+  transform: rotate(-4deg) scale(1.2) translateY(-20%);
+}
+
+.c-home-social__link--dribbble {
+  background-position: 0 center;
+}
+
+.c-home-social__link--dribbble:hover {
+  transform: rotate(-6deg) scale(1.2) translateY(-20%);
+}
+
+.c-home-social__link--soundcloud {
+  background-position: -90px center;
+}
+
+.c-home-social__link--soundcloud:hover {
+  transform: rotate(4deg) scale(1.2) translateY(-20%);
+}
+
+.c-home-canvas {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 0;
+}

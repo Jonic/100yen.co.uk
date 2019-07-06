@@ -47,6 +47,7 @@ module.exports = config => {
       'njk',
       'otf',
       'png',
+      'svg',
       'ttf',
       'txt',
       'woff',

@@ -10,7 +10,7 @@
   "license": "MIT",
   "scripts": {
     "build": "ELEVENTY_ENV=prod eleventy",
-    "start": "netlify dev -c 'ELEVENTY_ENV=dev eleventy --serve'",
+    "develop": "ELEVENTY_ENV=dev eleventy --serve",
     "lint:staged": "lint-staged"
   },
   "dependencies": {
