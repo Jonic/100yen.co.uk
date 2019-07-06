@@ -1,44 +1,46 @@
 {
+  "private": true,
+  "name": "100yen",
+  "description": "My god damn website",
+  "version": "2019.0.0",
   "author": {
-    "email": "jonic@100yen.co.uk",
     "name": "Jonic Linley",
-    "url": "http://100yen.co.uk/"
+    "url": "https://www.100yen.co.uk"
   },
-  "copyright": "Copyright 2017 Jonic Linley",
+  "license": "MIT",
+  "scripts": {
+    "build": "ELEVENTY_ENV=prod eleventy",
+    "develop": "ELEVENTY_ENV=dev eleventy --serve",
+    "lint:staged": "lint-staged"
+  },
   "dependencies": {
-    "serve": "latest"
-  },
-  "engines": {
-    "node": "8.x.x"
+    "@11ty/eleventy": "0.8.3",
+    "dotenv": "^8.0.0",
+    "fibers": "^4.0.1",
+    "he": "^1.2.0",
+    "html-minifier": "3.5.21",
+    "luxon": "1.15.0",
+    "netlify-cli": "^2.11.23"
   },
   "devDependencies": {
-    "eslint": "^3.19.0",
-    "eslint-config-standard": "^10.2.1",
-    "eslint-plugin-promise": "^3.5.0",
-    "eslint-plugin-standard": "^3.0.1",
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^4.0.0",
-    "gulp-babel": "^6.1.2",
-    "gulp-bump": "^2.7.0",
-    "gulp-cssnano": "^2.1.2",
-    "gulp-header": "^1.8.8",
-    "gulp-imagemin": "^3.3.0",
-    "gulp-notify": "^3.0.0",
-    "gulp-plumber": "^1.1.0",
-    "gulp-rename": "^1.2.2",
-    "gulp-sass": "^3.1.0",
-    "gulp-sourcemaps": "^2.6.4",
-    "gulp-uglify": "^3.0.0",
-    "gulp-util": "^3.0.8",
-    "require-reload": "^0.2.2"
+    "babel-eslint": "10.0.1",
+    "eslint": "5.16.0",
+    "eslint-config-prettier": "4.3.0",
+    "eslint-plugin-prettier": "3.1.0",
+    "lint-staged": "8.1.6",
+    "prettier": "1.17.0",
+    "prettier-package-json": "2.1.0",
+    "prettier-stylelint": "0.4.2",
+    "stylelint": "10.0.1",
+    "stylelint-config-standard": "18.3.0",
+    "stylelint-order": "3.0.0"
   },
-  "name": "100yen",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Jonic/100yen.co.uk.git"
+    "url": "https://github.com/jonic/100yen.co.uk"
   },
-  "scripts": {
-    "start": "serve ./"
+  "engines": {
+    "node": "10.16.0"
   },
-  "version": "100.0.0"
+  "pre-commit": "lint:staged"
 }

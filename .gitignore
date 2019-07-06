@@ -1,3 +1,6 @@
 .DS_Store
-.sass-cache
+archive
 node_modules
+node_modules
+public
+src/**/_source
