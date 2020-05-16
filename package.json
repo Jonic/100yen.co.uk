@@ -2,24 +2,17 @@
   "private": true,
   "name": "100yen",
   "description": "My god damn website",
-  "version": "2019.0.0",
+  "version": "2020.0.0",
   "author": {
     "name": "Jonic Linley",
     "url": "https://www.100yen.co.uk"
   },
   "license": "MIT",
   "scripts": {
-    "build": "ELEVENTY_ENV=prod eleventy",
-    "develop": "ELEVENTY_ENV=dev eleventy --serve",
     "lint:staged": "lint-staged"
   },
   "dependencies": {
-    "@11ty/eleventy": "0.8.3",
     "dotenv": "^8.0.0",
-    "fibers": "^4.0.1",
-    "he": "^1.2.0",
-    "html-minifier": "3.5.21",
-    "luxon": "1.15.0",
     "netlify-cli": "^2.11.23"
   },
   "devDependencies": {
@@ -40,7 +33,7 @@
     "url": "https://github.com/jonic/100yen.co.uk"
   },
   "engines": {
-    "node": "10.16.0"
+    "node": "12.16.3"
   },
   "pre-commit": "lint:staged"
 }
