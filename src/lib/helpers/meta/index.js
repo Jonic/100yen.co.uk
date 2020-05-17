@@ -1,14 +1,9 @@
-import { withAssetPrefix } from 'gatsby'
-
-// eslint-disable-next-line complexity
 export const opengraphImage = (imageSrc) => {
-  let joinCharacter = '/'
-
-  if (imageSrc.indexOf('/') === 0) {
-    joinCharacter = ''
+  if (!imageSrc) {
+    return
   }
 
-  return ['https://www.100yen.co.uk', imageSrc].join(joinCharacter)
+  return ['https://www.100yen.co.uk', imageSrc].join('/')
 }
 
 export const pageTitle = (title) => {
