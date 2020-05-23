@@ -1,0 +1,4 @@
+
+User-agent: *
+Disallow: /perch
+Disallow: /contact
