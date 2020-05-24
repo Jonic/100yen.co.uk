@@ -4,14 +4,17 @@
         <?php require '_html-head.php' ?>
     </head>
 
-    <body>
-        <?php require '_accessibility-links.php' ?>
-        <?php require '_header.php' ?>
+    <body class="o-page o-page--<?php echo $page->slug ?>">
+        <?php // require '_accessibility-links.php' ?>
+        <?php // require '_header.php' ?>
 
         <main>
             <?php $page->yield() ?>
         </main>
 
-        <?php require '_footer.php' ?>
+        <?php // require '_footer.php' ?>
+
+        <?php application_script(); ?>
+        <?php page_script(); ?>
     </body>
 </html>

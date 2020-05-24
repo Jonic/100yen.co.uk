@@ -5,13 +5,15 @@ global $page;
 
 function page_meta()
 {
-    return join(
+    $meta = implode(
         "\n",
         [
             static_meta(),
             transient_meta(),
         ]
     );
+
+    echo $meta;
 }
 
 function static_meta()
@@ -21,7 +23,7 @@ function static_meta()
 
 function transient_meta()
 {
-    return join(
+    return implode(
         "\n",
         [
             html_title(),

@@ -1,63 +1,104 @@
 <?php
 class Page
 {
-    public $config;
-    public $path;
-    public bool $valid;
+    private array $_file_names;
+    public array $config;
+    public bool $is_valid;
+    public string $path;
+    public string $script;
+    public string $slug;
+    public string $styles;
+    public string $view;
 
     public function __construct($path)
     {
         $this->path = $path;
-        $this->valid = $this->_view_exists();
-        $this->config = $this->_config();
+        $this->slug = $this->_slug();
 
+        $this->_file_names = [
+            'config' => 'config.php',
+            'script' => 'script.js',
+            'styles' => 'styles.css',
+            'view'   => 'index.php',
+        ];
+
+        $this->is_valid = $this->_file_exists('view');
+
+        if ($this->is_valid) {
+            $this->config = $this->_config();
+            $this->script = $this->_file_exists('script');
+            $this->styles = $this->_file_exists('styles');
+            $this->view   = $this->_view();
+        }
     }
 
-    public function is_not_found()
+    public function not_found()
     {
-        return !$this->valid;
+        return !$this->is_valid;
+    }
+
+    public function page_path()
+    {
+        return implode(
+            [
+                '/app/pages',
+                $this->path,
+                '/',
+            ]
+        );
+    }
+
+    public function asset($asset)
+    {
+        return $this->page_path() . $this->_file_names[$asset];
     }
 
     public function yield()
     {
-        include $this->_view_path();
+        echo $this->view;
     }
 
     private function _config()
     {
-        if ($this->valid) {
-            $this->config = include $this->_config_path();
+        $file_name = 'config';
+
+        if ($this->_file_exists($file_name)) {
+            return include $this->_file_path($file_name);
         }
+
+        return false;
     }
 
-    private function _config_path()
+    private function _file_exists($file_name)
     {
-        return $this->_pages_path() . "$this->path/config.php";
+        return file_exists($this->_file_path($file_name));
     }
 
-    private function _not_found()
+    private function _file_path($file_name)
     {
-        throw Exception;
+        return $this->_page_dir() . $this->_file_names[$file_name];
     }
 
-    private function _pages_path()
+    private function _page_dir()
     {
-        return ROTORS_ROOT . '/app/pages';
+        return implode(
+            [
+                ROTORS_ROOT,
+                $this->page_path()
+            ]
+        );
+    }
+
+    private function _slug()
+    {
+        $path_array = explode('/', $this->path);
+        return $path_array[count($path_array) - 1];
     }
 
     private function _view()
     {
-        $this->view = file_get_contents($this->_view_path());
-        echo $this->view;
-    }
-
-    private function _view_exists()
-    {
-        return file_exists($this->_view_path());
-    }
-
-    private function _view_path()
-    {
-        return $this->_pages_path() . "$this->path/index.php";
+        return file_get_contents(
+            $this->_file_path('view')
+        );
     }
 }
