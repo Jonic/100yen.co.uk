@@ -32,7 +32,7 @@ function page_styles()
 
 function script($src)
 {
-    echo '<script scr="' . $src . '"></script>';
+    echo '<script src="' . $src . '"></script>';
 }
 
 function styles($href)
