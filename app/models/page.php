@@ -1,5 +1,6 @@
 <?php
-echo 'I’m in the combination pizza hut and taco bell<br />';
+namespace Jonic\Rotors;
+
 class Page
 {
     private array $_file_names;
