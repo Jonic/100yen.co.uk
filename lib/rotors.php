@@ -4,6 +4,7 @@
  *
  * @author Jonic Linley <jonic@100yen.co.uk>
  */
+echo 'made it to rotors.php';
 require_once ROTORS_ROOT . '/config/application.php';
 require_once ROTORS_ROOT . '/app/helpers/application_helper.php';
 require_once ROTORS_ROOT . '/app/models/page.php';
