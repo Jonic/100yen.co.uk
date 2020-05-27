@@ -28,7 +28,6 @@ class Page
             $this->config = $this->_config();
             $this->script = $this->_file_exists('script');
             $this->styles = $this->_file_exists('styles');
-            $this->view   = $this->_view();
         }
     }
 
@@ -55,7 +54,7 @@ class Page
 
     public function yield()
     {
-        echo $this->view;
+        include $this->_file_path('view');
     }
 
     private function _config()
@@ -93,12 +92,5 @@ class Page
     {
         $path_array = explode('/', $this->path);
         return $path_array[count($path_array) - 1];
-    }
-
-    private function _view()
-    {
-        return file_get_contents(
-            $this->_file_path('view')
-        );
     }
 }
