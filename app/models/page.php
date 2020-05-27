@@ -3,13 +3,13 @@ class Page
 {
     private $_file_names;
     public $config;
-    public bool $is_valid;
-    public string $path;
-    public string $script;
-    public string $slug;
-    public string $styles;
-    public string $view;
-    public string $url;
+    public $is_valid;
+    public $path;
+    public $script;
+    public $slug;
+    public $styles;
+    public $view;
+    public $url;
 
     public function __construct($path, $url)
     {
