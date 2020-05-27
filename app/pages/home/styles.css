@@ -36,6 +36,7 @@ span:lang(ja) {
   transition-duration: 150ms;
   transition-property: color;
   transition-timing-function: linear;
+  white-space: nowrap;
   z-index: 1;
 }
 
