@@ -1,6 +1,5 @@
 <?php
-
-// global $config;
+echo 'I’m in the meta helper?';
 global $page;
 
 function page_meta()
