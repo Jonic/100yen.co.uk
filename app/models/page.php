@@ -2,7 +2,7 @@
 class Page
 {
     private $_file_names;
-    public array $config;
+    public $config;
     public bool $is_valid;
     public string $path;
     public string $script;
