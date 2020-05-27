@@ -3,6 +3,7 @@
  * Rotors - Just enough PHP to get you off the ground
  */
 
+echo 'hi';
 define('ENV', 'development');
 error_reporting(E_ALL);
 
