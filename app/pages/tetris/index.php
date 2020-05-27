@@ -1,1 +1,1 @@
-<h1>A page about Tetris</h1>
+<script src="https://threejs.org/build/three.min.js"></script>
