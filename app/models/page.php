@@ -1,5 +1,5 @@
 <?php
-namespace Jonic\Rotors;
+// namespace Jonic\Rotors;
 
 class Page
 {
