@@ -12,6 +12,7 @@ const randomInt = (low, high) => {
 }
 
 const colors = [
+  'rgb(0,0,0)',
   'rgb(29, 43, 83)', // dark-blue
   'rgb(126, 37, 83)', // dark-purple
   'rgb(0, 135, 81)', // dark-green
@@ -35,9 +36,19 @@ const elem = document.querySelector('.c-two-js')
 const params = { width: window.innerWidth, height: window.innerHeight }
 const two = new Two(params).appendTo(elem)
 
-const crossSpanCount = 80
-const uDimension = Math.min(window.innerHeight, window.innerWidth)
-const u = Math.round(uDimension / crossSpanCount)
+const crossSpanCount = 50
+const crossSpanBasis = 1000
+const uDimension = Math.max(window.innerHeight, window.innerWidth)
+const crossSpanMultiplier = Math.min(1, uDimension / crossSpanBasis)
+const u = (crossSpanCount * crossSpanMultiplier) / 5
+console.table({
+  crossSpanCount,
+  crossSpanBasis,
+  uDimension,
+  crossSpanMultiplier,
+  u,
+})
+
 const spotRadius = Math.round(u * 8) ** 2
 
 let prefersReducedMotion = false
