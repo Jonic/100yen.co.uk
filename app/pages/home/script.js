@@ -12,7 +12,6 @@ const randomInt = (low, high) => {
 }
 
 const colors = [
-  'rgb(0,0,0)',
   'rgb(29, 43, 83)', // dark-blue
   'rgb(126, 37, 83)', // dark-purple
   'rgb(0, 135, 81)', // dark-green
