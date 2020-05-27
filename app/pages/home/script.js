@@ -180,11 +180,10 @@ class Pointer {
       return
     }
 
-    this.x = Math.round(event.pageX - window.pageXOffset)
-    this.y = Math.round(event.pageY - window.pageYOffset)
-
     this.moveTimeout = 50
     this.moved = true
+    this.x = Math.round(event.pageX - window.pageXOffset)
+    this.y = Math.round(event.pageY - window.pageYOffset)
   }
 
   update() {

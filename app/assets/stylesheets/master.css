@@ -13,11 +13,11 @@
 html {
   background-color: var(--palette-cream);
   color: var(--palette-navy);
-  font-size: 10px;
+  font-size: 8px;
   margin: 0;
   min-height: calc(100vh - 10rem);
   min-height: -webkit-fill-available;
-  padding: 5rem;
+  padding: 2rem;
 }
 
 body {
@@ -27,6 +27,13 @@ body {
   line-height: 1.65;
   margin: 0;
   padding: 0;
+}
+
+@media screen and (min-width: 500px) {
+  html {
+    font-size: 10px;
+    padding: 5rem;
+  }
 }
 
 a {
@@ -81,5 +88,5 @@ p {
 }
 
 .c-type--caption {
-  font-size: 0.8em;
+  font-size: 0.8rem;
 }

@@ -80,11 +80,7 @@ span:lang(ja) {
 }
 
 .c-shoutout {
-  bottom: 1rem;
   font-size: 1.4rem;
-  margin: 0;
-  position: absolute;
-  right: 1rem;
 }
 
 .c-two-js {

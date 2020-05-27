@@ -34,7 +34,7 @@ shuffle($things);
 </ul>
 
 <p class="c-shoutout">
-    Thanks for the inspiration and a bunch more besides,
+    Thanks,
     <a class="c-link" href="https://twitter.com/lexaloffle/status/1052920070316339201">Zep</a>
 </p>
 
