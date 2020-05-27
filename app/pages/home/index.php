@@ -14,7 +14,7 @@ $things = [
 shuffle($things);
 ?>
 
-<h1 class="c-type--page-title">Hiya. I’m Jonic.</h1>
+<h1 class="c-type--page-title">Hiya, I’m Jonic</h1>
 
 <p class="c-type--lead">
     <?php echo implode("\n", $things); ?>
