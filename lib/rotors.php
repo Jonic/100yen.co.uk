@@ -7,6 +7,7 @@
 echo 'made it to rotors.php<br />';
 require_once ROTORS_ROOT . '/config/application.php';
 require_once ROTORS_ROOT . '/app/helpers/application_helper.php';
+echo 'oh boy we about to require the page model';
 require_once ROTORS_ROOT . '/app/models/page.php';
 
 $url = urldecode(
