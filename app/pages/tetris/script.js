@@ -8,8 +8,7 @@ const tetrominoShapes = [
       1, 0, 0, 0,
       1, 0, 0, 0,
       1, 0, 0, 0
-    ],
-    objectOffset: -0.5,
+    ]
   },
   {
     name: 'O',
@@ -20,8 +19,7 @@ const tetrominoShapes = [
       1, 1, 0, 0,
       0, 0, 0, 0,
       0, 0, 0, 0
-    ],
-    objectOffset: -1,
+    ]
   },
   {
     name: 'T',
@@ -32,8 +30,7 @@ const tetrominoShapes = [
       0, 1, 0, 0,
       0, 0, 0, 0,
       0, 0, 0, 0
-    ],
-    objectOffset: -1.5,
+    ]
   },
   {
     name: 'S',
@@ -44,8 +41,7 @@ const tetrominoShapes = [
       1, 1, 0, 0,
       0, 0, 0, 0,
       0, 0, 0, 0
-    ],
-    objectOffset: -1.5,
+    ]
   },
   {
     name: 'Z',
@@ -56,8 +52,7 @@ const tetrominoShapes = [
       0, 1, 1, 0,
       0, 0, 0, 0,
       0, 0, 0, 0
-    ],
-    objectOffset: -1.5,
+    ]
   },
   {
     name: 'J',
@@ -68,8 +63,7 @@ const tetrominoShapes = [
       0, 1, 0, 0,
       1, 1, 0, 0,
       0, 0, 0, 0
-    ],
-    objectOffset: -1,
+    ]
   },
   {
     name: 'L',
@@ -80,8 +74,7 @@ const tetrominoShapes = [
       1, 0, 0, 0,
       1, 1, 0, 0,
       0, 0, 0, 0
-    ],
-    objectOffset: -1,
+    ]
   },
 ]
 
@@ -223,7 +216,7 @@ class Tetromino {
 
     this.object.name = this.setGroupName()
     this.matrix = this.shape.matrix
-    this.z = randomInt(-20, -5)
+    this.z = randomInt(-40, -5)
     this.depthFactor = 15
     this.deletionDepth = -this.depthFactor + this.z
 
