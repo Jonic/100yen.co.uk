@@ -1,6 +1,6 @@
 <?php
 
-global $config;
+// global $config;
 global $page;
 
 function page_meta()
@@ -16,66 +16,119 @@ function page_meta()
     echo $meta;
 }
 
-function static_meta()
+function build_meta_element($meta)
 {
-    return '';
+    $output = ['<meta'];
+
+    foreach ($meta as $attribute => $value) {
+        $output[] = "$attribute=\"$value\"";
+    }
+
+    $output[] = '/>';
+
+    return implode(" ", $output);
 }
 
-function transient_meta()
+function canonican_url()
 {
+    global $config;
+    global $page;
+
+    return implode([$config['url'], $page->url]);
+}
+
+function cover_image($cover_image)
+{
+    global $config;
+
     return implode(
-        "\n",
         [
-            html_title(),
-            html_description(),
-            icons(),
-            opengraph(),
-            twitter(),
+            $config['url'],
+            $cover_image,
         ]
     );
 }
 
-function html_title()
+function static_meta()
 {
-    // <title><title>
-    return '';
+    global $config;
+    $output = [];
+
+    foreach ($config['meta']['static'] as $meta) {
+        $output[] = build_meta_element($meta);
+    }
+
+    return implode("\n", $output);
 }
 
-function html_description()
+function transient_meta()
 {
-    // <meta name="description" content="" />
-    return '';
+    global $config;
+    global $page;
+
+    $meta_config = array_merge($config['meta']['transient'], $page->config);
+
+    return implode(
+        "\n",
+        [
+            html_title($meta_config['title']),
+            html_description($meta_config['description']),
+            icons($meta_config['icon']),
+            opengraph($meta_config),
+            twitter($meta_config),
+        ]
+    );
 }
 
-function icons()
+function html_title($title)
 {
-    // <link rel="icon" href="/path/to/favicon-32.png" sizes="32x32" />
-    // <link rel="icon" href="/path/to/favicon-57.png" sizes="57x57" />
-    // <link rel="icon" href="/path/to/favicon-76.png" sizes="76x76" />
-    // <link rel="icon" href="/path/to/favicon-96.png" sizes="96x96" />
-    // <link rel="icon" href="/path/to/favicon-128.png" sizes="128x128" />
-    // <link rel="icon" href="/path/to/favicon-192.png" sizes="192x192" />
-    // <link rel="icon" href="/path/to/favicon-228.png" sizes="228x228" />
-    // <link rel="shortcut icon" sizes="196x196" href="/path/to/favicon-196.png" />
-    // <link rel="apple-touch-icon" href="/path/to/favicon-120.png" sizes="120x120" />
-    // <link rel="apple-touch-icon" href="/path/to/favicon-152.png" sizes="152x152" />
-    // <link rel="apple-touch-icon" href="/path/to/favicon-180.png" sizes="180x180" />
-    return '';
+    global $config;
+    $site_name = $config['site_name'];
+    return "<title>{$title} — {$site_name}</title>";
 }
 
-function opengraph()
+function html_description($description)
 {
-    // <meta property="og:description" content="" />
-    // <meta property="og:image" content="" />
-    // <meta property="og:title" content="" />
-    // <meta property="og:url" content="" />
-    return '';
+    return "<meta name=\"description\" content=\"$description\" />";
 }
 
-function twitter()
+function icons($icon)
 {
-    // <meta name="twitter:description" content="" />
-    // <meta name="twitter:image" content="" />
-    // <meta name="twitter:title" content="" />
-    return '';
+    return implode(
+        "\n",
+        [
+            "<link rel=\"shortcut icon\" href=\"$icon\" />",
+            "<link rel=\"apple-touch-icon\" href=\"$icon\" />",
+        ]
+    );
+}
+
+function opengraph($meta_config)
+{
+    $cover_image = cover_image($meta_config['cover_image']);
+    $url = canonican_url();
+
+    return implode(
+        "\n",
+        [
+            "<meta property=\"og:description\" content=\"{$meta_config['description']}\" />",
+            "<meta property=\"og:image\" content=\"{$cover_image}\" />",
+            "<meta property=\"og:title\" content=\"{$meta_config['title']}\" />",
+            "<meta property=\"og:url\" content=\"$url\" />",
+        ]
+    );
+}
+
+function twitter($meta_config)
+{
+    $cover_image = cover_image($meta_config['cover_image']);
+
+    return implode(
+        "\n",
+        [
+            "<meta name=\"twitter:description\" content=\"{$meta_config['description']}\" />",
+            "<meta name=\"twitter:image\" content=\"{$cover_image}\" />",
+            "<meta name=\"twitter:title\" content=\"{$meta_config['title']}\" />",
+        ]
+    );
 }

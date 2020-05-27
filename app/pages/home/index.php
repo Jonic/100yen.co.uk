@@ -3,8 +3,8 @@ $things = [
     'I&nbsp;like to make things with code.',
     'I&nbsp;sometimes make things out of electronics.',
     'I’m&nbsp;a singer/guitarist/drummer/pianist.',
-    'I’m&nbsp;really good at Tetris.',
-    'I&nbsp;made a video game one time.',
+    'I’m&nbsp;really good at <a class="c-link" href="/tetris">Tetris</a>.',
+    'I&nbsp;made <a class="c-link" href="https://jonic.itch.io/knifey-spoony">a video game</a> one time.',
     '<span lang="ja">日本語を　勉強します。</span>',
     'I&nbsp;have ADHD.',
     'I’m&nbsp;named after Sonic the Hedgehog.',
@@ -17,7 +17,7 @@ shuffle($things);
 <h1 class="c-type--page-title">Hiya. I’m Jonic.</h1>
 
 <p class="c-type--lead">
-    <?php echo join(' ', $things); ?>
+    <?php echo implode("\n", $things); ?>
 </p>
 
 <p>
@@ -34,7 +34,7 @@ shuffle($things);
 </ul>
 
 <p class="c-shoutout">
-    Thanks,
+    Thanks for the inspiration and a bunch more besides,
     <a class="c-link" href="https://twitter.com/lexaloffle/status/1052920070316339201">Zep</a>
 </p>
 

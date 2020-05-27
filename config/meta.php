@@ -48,7 +48,7 @@ return [
     'transient' => [
         'cover_image' => '',
         'description' => 'damn this really a webbed site huh',
-        'icon' => '',
+        'icon' => 'kghjsf',
         'title' => 'WHO CARES',
     ]
 ];

@@ -87,7 +87,7 @@ class Cross {
   }
 
   setCycleTimeout() {
-    this.cycleTimeout = randomInt(0, 5)
+    this.cycleTimeout = randomInt(2, 5)
   }
 
   update() {

@@ -9,11 +9,13 @@ class Page
     public string $slug;
     public string $styles;
     public string $view;
+    public string $url;
 
-    public function __construct($path)
+    public function __construct($path, $url)
     {
         $this->path = $path;
         $this->slug = $this->_slug();
+        $this->url  = $url;
 
         $this->_file_names = [
             'config' => 'config.php',
