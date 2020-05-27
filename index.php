@@ -3,7 +3,6 @@
  * Rotors - Just enough PHP to get you off the ground
  */
 
-echo $_SERVER['DOCUMENT_ROOT'];
 define('ENV', 'development');
 error_reporting(E_ALL);
 
