@@ -22,7 +22,7 @@ shuffle($things);
 
 <p>
     This site is a work-in-progress. More coming soon. Maybe.
-    Who knows. You saw the bit about me having ADHD.
+    Who knows. We all just saw that bit about me having ADHD.
 </p>
 <p>Find me around the web, if you like:</p>
 

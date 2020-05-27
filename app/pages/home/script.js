@@ -45,7 +45,7 @@ const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
 const detectReducedMotion = (mq) => {
   prefersReducedMotion = mq.matches
 }
-mediaQuery.addEventListener('change', detectReducedMotion)
+mediaQuery.addListener(detectReducedMotion)
 detectReducedMotion(mediaQuery)
 
 class Cross {
@@ -169,8 +169,8 @@ class Pointer {
   }
 
   addEventListeners() {
-    document.addEventListener('mousemove', this.updateCoords)
-    document.addEventListener('touchmove', this.updateCoords)
+    document.addEventListener('mousemove', (event) => this.updateCoords(event))
+    document.addEventListener('touchmove', (event) => this.updateCoords(event))
   }
 
   updateCoords(event) {
