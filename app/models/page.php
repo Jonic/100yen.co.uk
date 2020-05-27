@@ -1,6 +1,4 @@
 <?php
-// namespace Jonic\Rotors;
-
 class Page
 {
     private array $_file_names;
