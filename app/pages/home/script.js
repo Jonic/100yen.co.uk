@@ -173,7 +173,7 @@ class Pointer {
     document.addEventListener('touchmove', this.updateCoords)
   }
 
-  updateCoords = (event) => {
+  updateCoords(event) {
     event.preventDefault()
 
     if (prefersReducedMotion) {
