@@ -40,14 +40,6 @@ const crossSpanBasis = 1000
 const uDimension = Math.max(window.innerHeight, window.innerWidth)
 const crossSpanMultiplier = Math.min(1, uDimension / crossSpanBasis)
 const u = (crossSpanCount * crossSpanMultiplier) / 5
-console.table({
-  crossSpanCount,
-  crossSpanBasis,
-  uDimension,
-  crossSpanMultiplier,
-  u,
-})
-
 const spotRadius = Math.round(u * 8) ** 2
 
 let prefersReducedMotion = false
