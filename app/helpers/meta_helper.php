@@ -1,5 +1,4 @@
 <?php
-echo 'I’m in the meta helper?<br />';
 global $page;
 
 function page_meta()

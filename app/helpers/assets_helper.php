@@ -1,5 +1,4 @@
 <?php
-echo 'I’m in the assets helper?<br />';
 global $config;
 
 function application_script()
