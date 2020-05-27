@@ -1,0 +1,98 @@
+/*
+  rgb(29,  43,  83)  dark-blue
+  rgb(126, 37,  83)  dark-purple
+  rgb(0,   135, 81)  dark-green
+  rgb(95,  87,  79)  dark-gray
+  rgb(171, 82,  54)  brown
+  rgb(131, 118, 156) indigo
+  rgb(41,  173, 255) blue
+  rgb(0,   228, 54)  green
+  rgb(255, 236, 39)  yellow
+  rgb(255, 119, 168) pink
+  rgb(194, 195, 199) light-gray
+  rgb(255, 163, 0)   orange
+  rgb(255, 204, 170) peach
+  rgb(255, 0,   77)  red
+  rgb(255, 241, 232) white
+*/
+
+html {
+  background: rgb(29, 43, 83);
+}
+
+.o-page--home {
+  color: rgb(255, 241, 232);
+  text-shadow: 0 0 20px #000;
+}
+
+span:lang(ja) {
+  white-space: nowrap;
+}
+
+.c-link {
+  color: rgb(255, 241, 232);
+  position: relative;
+  text-decoration: none;
+  transition-duration: 150ms;
+  transition-property: color;
+  transition-timing-function: linear;
+  z-index: 1;
+}
+
+.c-link::before {
+  background-color: rgb(41, 173, 255);
+  border-radius: 0;
+  bottom: 0.5rem;
+  content: ' ';
+  height: 0.5rem;
+  left: -0.25rem;
+  position: absolute;
+  transition-duration: 150ms;
+  transition-property: background-color border-radius bottom height left;
+  transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  width: calc(100% + 0.5rem);
+  z-index: -1;
+}
+
+.c-link:hover {
+  color: rgb(29, 43, 83);
+  text-shadow: none;
+}
+
+.c-link:visited {
+  color: rgb(255, 241, 232);
+}
+
+.c-link:visited:hover {
+  color: #000;
+  text-shadow: none;
+}
+
+.c-link:hover::before,
+.c-link:hover:visited::before {
+  background-color: rgb(255, 0, 77, 0.8);
+  border-radius: 0.5rem;
+  bottom: -0.5rem;
+  height: calc(100% + 1rem);
+  left: -1rem;
+  width: calc(100% + 2rem);
+}
+
+.c-shoutout {
+  bottom: 1rem;
+  font-size: 1.4rem;
+  margin: 0;
+  position: absolute;
+  right: 1rem;
+}
+
+.c-two-js {
+  background: #111;
+  display: block;
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}
