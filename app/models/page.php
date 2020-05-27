@@ -1,7 +1,7 @@
 <?php
 class Page
 {
-    private array $_file_names;
+    private $_file_names;
     public array $config;
     public bool $is_valid;
     public string $path;
