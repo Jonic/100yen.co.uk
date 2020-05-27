@@ -1,1 +1,1 @@
-<script src="https://threejs.org/build/three.min.js"></script>
+<script src="/app/assets/vendor/three.js/three.min.js"></script>
