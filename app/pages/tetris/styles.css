@@ -11,3 +11,9 @@ body {
 .c-main {
   padding: 0;
 }
+
+.c-home-link {
+  position: absolute;
+  left: 2rem;
+  top: 1rem;
+}
