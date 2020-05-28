@@ -205,7 +205,7 @@ window.addEventListener('DOMContentLoaded', () => {
   windowWidth = window.innerWidth
   windowHeight = window.innerHeight + 100
 
-  const twoRenderer = Two.Types.webgl
+  let twoRenderer = Two.Types.webgl
   if (touchscreen) {
     twoRenderer = Two.Types.canvas
   }
