@@ -134,10 +134,6 @@ class Pointer {
   updateCoords(event) {
     event.preventDefault()
 
-    if (prefersReducedMotion) {
-      return
-    }
-
     this.x = Math.round(event.pageX - window.pageXOffset)
     this.y = Math.round(event.pageY - window.pageYOffset)
   }
