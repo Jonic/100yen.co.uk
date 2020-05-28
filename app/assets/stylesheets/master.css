@@ -82,7 +82,7 @@ p {
 }
 
 .c-main {
-  padding: 0;
+  padding: 1rem;
 }
 
 @media screen and (min-width: 500px) {
