@@ -181,6 +181,7 @@ class Pointer {
 
 let colorHigh = colors.length - 1
 let colorLow = 0
+let touchscreen = false
 let field
 let pointer
 let prefersReducedMotion = false
@@ -191,20 +192,28 @@ let windowHeight
 let windowWidth
 
 window.addEventListener('DOMContentLoaded', () => {
-  const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
-  const detectReducedMotion = (mq) => {
-    prefersReducedMotion = mq.matches
-  }
-  mediaQuery.addListener(detectReducedMotion)
-  detectReducedMotion(mediaQuery)
+  const mobileMQ = window.matchMedia('(hover: none)')
+  const detectMobile = (mq) => (touchscreen = mq.matches)
+  detectMobile(mobileMQ)
+  mobileMQ.addListener(detectMobile)
+
+  const motionMQ = window.matchMedia('(prefers-reduced-motion: reduce)')
+  const detectMotion = (mq) => (prefersReducedMotion = mq.matches)
+  detectMotion(motionMQ)
+  motionMQ.addListener(detectMotion)
 
   windowWidth = window.innerWidth
   windowHeight = window.innerHeight + 100
 
+  const twoRenderer = Two.Types.webgl
+  if (touchscreen) {
+    twoRenderer = Two.Types.canvas
+  }
+
   two = new Two({
     width: windowWidth,
     height: windowHeight + 100,
-    type: Two.Types.canvas,
+    type: twoRenderer,
   }).appendTo(document.querySelector('.c-two-js'))
 
   const crossSpanCount = 50
