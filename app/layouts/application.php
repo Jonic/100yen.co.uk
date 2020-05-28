@@ -1,8 +1,16 @@
 <!doctype html>
 <html class="no-js" lang="en">
     <head>
-        <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet" />
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter&display=swap" />
+        <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter&display=swap" media="print" onload="this.media='all'" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" media="print" onload="this.media='all'" />
+        <noscript>
+            <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet" />
+            <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+        </noscript>
+
         <?php require '_html-head.php' ?>
     </head>
 
