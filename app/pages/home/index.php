@@ -9,7 +9,7 @@ $things = [
     'I&nbsp;have ADHD.',
     'I’m&nbsp;named after Sonic the Hedgehog.',
     'I’m&nbsp;from the UK.',
-    'I’m&nbsp;a Senior Software Engineer for <a class="c-link" href="https://www.raspberrypi.org">Raspberry Pi</a>.'
+    'I’m&nbsp;a Senior Software Engineer at <a class="c-link" href="https://www.raspberrypi.org">Raspberry Pi</a>.'
 ];
 shuffle($things);
 ?>
