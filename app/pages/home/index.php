@@ -1,20 +1,21 @@
 <?php
 $things = [
-    'I&nbsp;like to make things with code.',
-    'I&nbsp;sometimes make things out of electronics.',
-    'I&nbsp;sing, and play guitar, drums, and piano.',
-    'I’m&nbsp;really good at <a class="c-link" href="/tetris">Tetris</a>.',
-    'I&nbsp;made <a class="c-link" href="https://jonic.itch.io/knifey-spoony">a video game</a> one time.',
     '<span lang="ja">日本語を　勉強します。</span>',
     'I&nbsp;have ADHD.',
-    'I’m&nbsp;named after Sonic the Hedgehog.',
+    'I&nbsp;like to make things with code.',
+    'I&nbsp;made <a class="c-link" href="https://jonic.itch.io/knifey-spoony">a video game</a> one time.',
+    'I&nbsp;sing, and play guitar, drums, and piano.',
+    'I&nbsp;sometimes make things out of electronics.',
+    // 'If&nbsp;you met me I guarantee I’d make you laugh.',
+    'I’m&nbsp;a Senior Software Engineer at <a class="c-link" href="https://www.raspberrypi.org">Raspberry Pi</a>.',
     'I’m&nbsp;from the UK.',
-    'I’m&nbsp;a Senior Software Engineer at <a class="c-link" href="https://www.raspberrypi.org">Raspberry Pi</a>.'
+    'I’m&nbsp;named after Sonic the Hedgehog.',
+    'I’m&nbsp;really good at <a class="c-link" href="/tetris">Tetris</a>.',
 ];
 shuffle($things);
 ?>
 
-<h1 class="c-type--page-title">Hiya, I’m Jonic</h1>
+<h1 class="c-type--page-title">Hiya! I’m Jonic.</h1>
 
 <p class="c-type--lead">
     <?php echo implode("\n", $things); ?>
