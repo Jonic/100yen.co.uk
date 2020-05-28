@@ -82,19 +82,7 @@ p {
 }
 
 .c-main {
-  padding: 1rem;
-}
-
-@media screen and (min-width: 500px) {
-  .c-main {
-    padding: 3rem;
-  }
-}
-
-@media screen and (min-width: 700px) {
-  .c-main {
-    padding: 5rem;
-  }
+  padding: 5vw;
 }
 
 .c-type--page-title {
