@@ -2,7 +2,7 @@
 $things = [
     'I&nbsp;like to make things with code.',
     'I&nbsp;sometimes make things out of electronics.',
-    'I’m&nbsp;a singer/guitarist/drummer/pianist.',
+    'I&nbsp;sing, and play guitar, drums, and piano.',
     'I’m&nbsp;really good at <a class="c-link" href="/tetris">Tetris</a>.',
     'I&nbsp;made <a class="c-link" href="https://jonic.itch.io/knifey-spoony">a video game</a> one time.',
     '<span lang="ja">日本語を　勉強します。</span>',
