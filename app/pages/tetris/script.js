@@ -77,6 +77,8 @@ const tetrominoShapes = [
     ]
   },
 ]
+const windowWidth = window.innerWidth
+const windowHeight = window.innerHeight + 100
 
 const random = (low, high) => {
   if (high === null) {
@@ -114,6 +116,31 @@ const rotateMatrix = (matrix) => {
   }
 
   return newMatrix
+}
+
+class Pointer {
+  constructor() {
+    this.x = windowWidth / 2
+    this.y = windowHeight / 2
+
+    this.addEventListeners()
+  }
+
+  addEventListeners() {
+    document.addEventListener('mousemove', (event) => this.updateCoords(event))
+    document.addEventListener('touchmove', (event) => this.updateCoords(event))
+  }
+
+  updateCoords(event) {
+    event.preventDefault()
+
+    if (prefersReducedMotion) {
+      return
+    }
+
+    this.x = Math.round(event.pageX - window.pageXOffset)
+    this.y = Math.round(event.pageY - window.pageYOffset)
+  }
 }
 
 class TetrisBoard {
@@ -277,7 +304,7 @@ class Tetromino {
 
 const camera = new THREE.PerspectiveCamera(
   75,
-  window.innerWidth / window.innerHeight,
+  windowWidth / windowHeight,
   0.1,
   1000
 )
@@ -294,7 +321,7 @@ camera.position.z = 5
 directionalLight.position.set(0, 10, 5)
 directionalLight.target.position.set(-5, 0, 0)
 renderer.setClearColor(0x000000, 0)
-renderer.setSize(window.innerWidth, window.innerHeight)
+renderer.setSize(windowWidth, windowHeight)
 
 document.body.appendChild(renderer.domElement)
 
@@ -303,10 +330,20 @@ scene.add(directionalLight)
 scene.add(directionalLight.target)
 
 const tetrisBoard = new TetrisBoard(scene)
+const pointer = new Pointer()
+let sceneRotation = 0
 
 const animate = () => {
   requestAnimationFrame(animate)
   tetrisBoard.update()
+
+  let rotateX = (pointer.x / windowWidth) * 2 - 1
+  let rotateY = (pointer.y / windowWidth) * 2 - 1
+
+  camera.position.x = rotateX
+  camera.position.y = rotateY
+  camera.lookAt(scene.position)
+
   renderer.render(scene, camera)
 }
 
