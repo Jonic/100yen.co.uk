@@ -28,30 +28,6 @@ const colors = [
   'rgb(255, 0, 77)', // red
   'rgb(255, 241, 232)', // white
 ]
-const colorLow = 0
-const colorHigh = colors.length - 1
-
-const windowWidth = window.innerWidth
-const windowHeight = window.innerHeight + 100
-
-const elem = document.querySelector('.c-two-js')
-const params = { width: windowWidth, height: windowHeight + 100 }
-const two = new Two(params).appendTo(elem)
-
-const crossSpanCount = 50
-const crossSpanBasis = 1000
-const uDimension = Math.max(windowHeight, windowWidth)
-const crossSpanMultiplier = Math.min(1, uDimension / crossSpanBasis)
-const u = (crossSpanCount * crossSpanMultiplier) / 5
-const spotRadius = Math.round(u * 8) ** 2
-
-let prefersReducedMotion = false
-const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
-const detectReducedMotion = (mq) => {
-  prefersReducedMotion = mq.matches
-}
-mediaQuery.addListener(detectReducedMotion)
-detectReducedMotion(mediaQuery)
 
 class Cross {
   constructor({ color, x, y }) {
@@ -198,15 +174,51 @@ class Pointer {
   }
 }
 
-const field = new Field()
-const pointer = new Pointer()
+let colorHigh = colors.length - 1
+let colorLow = 0
+let field
+let pointer
+let prefersReducedMotion = false
+let spotRadius
+let two
+let u
+let windowHeight
+let windowWidth
 
-const animate = () => {
-  requestAnimationFrame(animate)
+window.addEventListener('DOMContentLoaded', () => {
+  const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
+  const detectReducedMotion = (mq) => {
+    prefersReducedMotion = mq.matches
+  }
+  mediaQuery.addListener(detectReducedMotion)
+  detectReducedMotion(mediaQuery)
 
-  pointer.update()
-  field.update()
-  two.update()
-}
+  windowWidth = window.innerWidth
+  windowHeight = window.innerHeight + 100
 
-animate()
+  two = new Two({
+    width: windowWidth,
+    height: windowHeight + 100,
+  }).appendTo(document.querySelector('.c-two-js'))
+
+  const crossSpanCount = 50
+  const crossSpanBasis = 1000
+  const uDimension = Math.max(windowHeight, windowWidth)
+  const crossSpanMultiplier = Math.min(1, uDimension / crossSpanBasis)
+
+  u = (crossSpanCount * crossSpanMultiplier) / 5
+  spotRadius = Math.round(u * 8) ** 2
+
+  field = new Field()
+  pointer = new Pointer()
+
+  const animate = () => {
+    requestAnimationFrame(animate)
+
+    pointer.update()
+    field.update()
+    two.update()
+  }
+
+  animate()
+})

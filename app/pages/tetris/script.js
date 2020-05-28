@@ -1,85 +1,3 @@
-const tetrominoShapes = [
-  {
-    name: 'I',
-    color: '#FFF1E8',
-    // prettier-ignore
-    matrix: [
-      1, 0, 0, 0,
-      1, 0, 0, 0,
-      1, 0, 0, 0,
-      1, 0, 0, 0
-    ]
-  },
-  {
-    name: 'O',
-    color: '#FFEC27',
-    // prettier-ignore
-    matrix: [
-      1, 1, 0, 0,
-      1, 1, 0, 0,
-      0, 0, 0, 0,
-      0, 0, 0, 0
-    ]
-  },
-  {
-    name: 'T',
-    color: '#FF77A8',
-    // prettier-ignore
-    matrix: [
-      1, 1, 1, 0,
-      0, 1, 0, 0,
-      0, 0, 0, 0,
-      0, 0, 0, 0
-    ]
-  },
-  {
-    name: 'S',
-    color: '#00E436',
-    // prettier-ignore
-    matrix: [
-      0, 1, 1, 0,
-      1, 1, 0, 0,
-      0, 0, 0, 0,
-      0, 0, 0, 0
-    ]
-  },
-  {
-    name: 'Z',
-    color: '#FF004D',
-    // prettier-ignore
-    matrix: [
-      1, 1, 0, 0,
-      0, 1, 1, 0,
-      0, 0, 0, 0,
-      0, 0, 0, 0
-    ]
-  },
-  {
-    name: 'J',
-    color: '#29ADFF',
-    // prettier-ignore
-    matrix: [
-      0, 1, 0, 0,
-      0, 1, 0, 0,
-      1, 1, 0, 0,
-      0, 0, 0, 0
-    ]
-  },
-  {
-    name: 'L',
-    color: '#FFA300',
-    // prettier-ignore
-    matrix: [
-      1, 0, 0, 0,
-      1, 0, 0, 0,
-      1, 1, 0, 0,
-      0, 0, 0, 0
-    ]
-  },
-]
-const windowWidth = window.innerWidth
-const windowHeight = window.innerHeight + 100
-
 const random = (low, high) => {
   if (high === null) {
     high = low
@@ -298,49 +216,143 @@ class Tetromino {
   }
 }
 
-const camera = new THREE.PerspectiveCamera(
-  75,
-  windowWidth / windowHeight,
-  0.1,
-  1000
-)
-const directionalLight = new THREE.DirectionalLight(0xffffff, 1)
-const hemisphereLight = new THREE.HemisphereLight(0xb1e1ff, 0xb97a20, 0.75)
-const renderer = new THREE.WebGLRenderer({
-  alpha: true,
-  logarithmicDepthBuffer: true,
+const tetrominoShapes = [
+  {
+    name: 'I',
+    color: '#FFF1E8',
+    // prettier-ignore
+    matrix: [
+      1, 0, 0, 0,
+      1, 0, 0, 0,
+      1, 0, 0, 0,
+      1, 0, 0, 0
+    ]
+  },
+  {
+    name: 'O',
+    color: '#FFEC27',
+    // prettier-ignore
+    matrix: [
+      1, 1, 0, 0,
+      1, 1, 0, 0,
+      0, 0, 0, 0,
+      0, 0, 0, 0
+    ]
+  },
+  {
+    name: 'T',
+    color: '#FF77A8',
+    // prettier-ignore
+    matrix: [
+      1, 1, 1, 0,
+      0, 1, 0, 0,
+      0, 0, 0, 0,
+      0, 0, 0, 0
+    ]
+  },
+  {
+    name: 'S',
+    color: '#00E436',
+    // prettier-ignore
+    matrix: [
+      0, 1, 1, 0,
+      1, 1, 0, 0,
+      0, 0, 0, 0,
+      0, 0, 0, 0
+    ]
+  },
+  {
+    name: 'Z',
+    color: '#FF004D',
+    // prettier-ignore
+    matrix: [
+      1, 1, 0, 0,
+      0, 1, 1, 0,
+      0, 0, 0, 0,
+      0, 0, 0, 0
+    ]
+  },
+  {
+    name: 'J',
+    color: '#29ADFF',
+    // prettier-ignore
+    matrix: [
+      0, 1, 0, 0,
+      0, 1, 0, 0,
+      1, 1, 0, 0,
+      0, 0, 0, 0
+    ]
+  },
+  {
+    name: 'L',
+    color: '#FFA300',
+    // prettier-ignore
+    matrix: [
+      1, 0, 0, 0,
+      1, 0, 0, 0,
+      1, 1, 0, 0,
+      0, 0, 0, 0
+    ]
+  },
+]
+
+let camera
+let directionalLight
+let hemisphereLight
+let renderer
+let scene
+let textureLoader
+let windowHeight
+let windowWidth
+
+window.addEventListener('DOMContentLoaded', () => {
+  textureLoader = new THREE.TextureLoader()
+  windowWidth = window.innerWidth
+  windowHeight = window.innerHeight + 100
+
+  renderer = new THREE.WebGLRenderer({
+    alpha: true,
+    logarithmicDepthBuffer: true,
+  })
+  renderer.setClearColor(0x000000, 0)
+  renderer.setSize(windowWidth, windowHeight)
+  document.body.appendChild(renderer.domElement)
+
+  scene = new THREE.Scene()
+
+  camera = new THREE.PerspectiveCamera(
+    75,
+    windowWidth / windowHeight,
+    0.1,
+    1000
+  )
+  camera.position.z = 5
+
+  directionalLight = new THREE.DirectionalLight(0xffffff, 1)
+  directionalLight.position.set(0, 10, 5)
+  directionalLight.target.position.set(-5, 0, 0)
+  scene.add(directionalLight)
+  scene.add(directionalLight.target)
+
+  hemisphereLight = new THREE.HemisphereLight(0xb1e1ff, 0xb97a20, 0.75)
+  scene.add(hemisphereLight)
+
+  const tetrisBoard = new TetrisBoard(scene)
+  const pointer = new Pointer()
+
+  const animate = () => {
+    requestAnimationFrame(animate)
+    tetrisBoard.update()
+
+    const rotateX = (pointer.x / windowWidth) * 2 - 1
+    const rotateY = (pointer.y / windowHeight) * 2 - 1
+
+    camera.position.x = rotateX
+    camera.position.y = rotateY
+    camera.lookAt(scene.position)
+
+    renderer.render(scene, camera)
+  }
+
+  animate()
 })
-const scene = new THREE.Scene()
-const textureLoader = new THREE.TextureLoader()
-
-camera.position.z = 5
-directionalLight.position.set(0, 10, 5)
-directionalLight.target.position.set(-5, 0, 0)
-renderer.setClearColor(0x000000, 0)
-renderer.setSize(windowWidth, windowHeight)
-
-document.body.appendChild(renderer.domElement)
-
-scene.add(hemisphereLight)
-scene.add(directionalLight)
-scene.add(directionalLight.target)
-
-const tetrisBoard = new TetrisBoard(scene)
-const pointer = new Pointer()
-let sceneRotation = 0
-
-const animate = () => {
-  requestAnimationFrame(animate)
-  tetrisBoard.update()
-
-  let rotateX = (pointer.x / windowWidth) * 2 - 1
-  let rotateY = (pointer.y / windowWidth) * 2 - 1
-
-  camera.position.x = rotateX
-  camera.position.y = rotateY
-  camera.lookAt(scene.position)
-
-  renderer.render(scene, camera)
-}
-
-animate()
