@@ -31,10 +31,12 @@ function page_styles()
 
 function script($src)
 {
-    echo '<script src="' . $src . '"></script>';
+    $now = time();
+    echo '<script src="' . $src . '?whatevs=' . $now .'"></script>';
 }
 
 function styles($href)
 {
-    echo '<link rel="stylesheet" href="' . $href . '" />';
+    $now = time();
+    echo '<link rel="stylesheet" href="' . $href . '?whatevs=' . $now .'" />';
 }

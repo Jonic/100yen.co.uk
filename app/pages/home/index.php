@@ -6,7 +6,6 @@ $things = [
     'I&nbsp;made <a class="c-link" href="https://jonic.itch.io/knifey-spoony">a video game</a> one time.',
     'I&nbsp;sing, and play guitar, drums, and piano.',
     'I&nbsp;sometimes make things out of electronics.',
-    // 'If&nbsp;you met me I guarantee I’d make you laugh.',
     'I’m&nbsp;a Senior Software Engineer at <a class="c-link" href="https://www.raspberrypi.org">Raspberry Pi</a>.',
     'I’m&nbsp;from the UK.',
     'I’m&nbsp;named after Sonic the Hedgehog.',
