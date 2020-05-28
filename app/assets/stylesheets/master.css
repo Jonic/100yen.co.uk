@@ -21,6 +21,7 @@ html {
 }
 
 body {
+  border: 10px solid red;
   font-family: Inter, sans-serif;
   font-size: var(--base-font-size);
   font-weight: 400;
@@ -31,7 +32,6 @@ body {
 
 @media screen and (min-width: 500px) {
   html {
-    border: 10px solid red;
     font-size: 10px;
     padding: 3rem;
   }
