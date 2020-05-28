@@ -1,5 +1,11 @@
 html {
   background-color: #112;
+  overflow: hidden;
+}
+
+body {
+  overflow: hidden;
+  overscroll-behavior-y: none;
 }
 
 .c-main {
