@@ -10,7 +10,7 @@
         <?php // require '_accessibility-links.php' ?>
         <?php // require '_header.php' ?>
 
-        <main>
+        <main class="c-main">
             <?php $page->yield() ?>
         </main>
 

@@ -31,13 +31,16 @@ const colors = [
 const colorLow = 0
 const colorHigh = colors.length - 1
 
+const windowWidth = window.innerWidth
+const windowHeight = window.innerHeight + 100
+
 const elem = document.querySelector('.c-two-js')
-const params = { width: window.innerWidth, height: window.innerHeight }
+const params = { width: windowWidth, height: windowHeight + 100 }
 const two = new Two(params).appendTo(elem)
 
 const crossSpanCount = 50
 const crossSpanBasis = 1000
-const uDimension = Math.max(window.innerHeight, window.innerWidth)
+const uDimension = Math.max(windowHeight, windowWidth)
 const crossSpanMultiplier = Math.min(1, uDimension / crossSpanBasis)
 const u = (crossSpanCount * crossSpanMultiplier) / 5
 const spotRadius = Math.round(u * 8) ** 2
@@ -119,11 +122,11 @@ class Field {
   }
 
   get crossCountX() {
-    return this.crossCount(window.innerWidth, 4)
+    return this.crossCount(windowWidth, 4)
   }
 
   get crossCountY() {
-    return this.crossCount(window.innerHeight, 3)
+    return this.crossCount(windowHeight, 3)
   }
 
   addCrosses() {
@@ -164,8 +167,8 @@ class Pointer {
   constructor() {
     this.moveTimeout = 0
     this.moved = false
-    this.x = window.innerWidth / 2
-    this.y = window.innerHeight / 2
+    this.x = windowWidth / 2
+    this.y = windowHeight / 2
 
     this.addEventListeners()
   }

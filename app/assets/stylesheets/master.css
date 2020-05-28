@@ -1,13 +1,12 @@
 :root {
+  --base-font-size: 2rem;
   --palette-navy: #003554;
   --palette-blue: #00a6fb;
-  --palette-green: #17C3B2;
-  --palette-orange: #FFCB77;
-  --palette-cream: #FEF9EF;
-  --palette-pink: #FE6D73;
+  --palette-green: #17c3b2;
+  --palette-orange: #ffcb77;
+  --palette-cream: #fef9ef;
+  --palette-pink: #fe6d73;
   --palette-purple: #5a189a;
-
-  --base-font-size: 2rem;
 }
 
 html {
@@ -15,7 +14,7 @@ html {
   color: var(--palette-navy);
   font-size: 8px;
   margin: 0;
-  min-height: calc(100vh - 10rem);
+  min-height: 100vh;
   min-height: -webkit-fill-available;
   padding: 1rem;
 }
@@ -26,19 +25,19 @@ body {
   font-weight: 400;
   line-height: 1.65;
   margin: 0;
-  padding: 0;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
 }
 
 @media screen and (min-width: 500px) {
   html {
     font-size: 10px;
-    padding: 3rem;
   }
 }
 
 @media screen and (min-width: 700px) {
   html {
-    padding: 5rem;
+    padding: 0;
   }
 }
 
@@ -79,6 +78,22 @@ h5 { font-size: 1.25rem; }
 p {
   margin-bottom: 1.15rem;
   max-width: 60ch;
+}
+
+.c-main {
+  padding: 0;
+}
+
+@media screen and (min-width: 500px) {
+  .c-main {
+    padding: 3rem;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .c-main {
+    padding: 5rem;
+  }
 }
 
 .c-type--page-title {
