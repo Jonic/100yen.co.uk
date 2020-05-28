@@ -42,11 +42,14 @@ class Cross {
 
   createGroup() {
     const rectX = two.makeRectangle(0, 0, u, u * 3)
+    rectX.linewidth = 0
     const rectY = two.makeRectangle(0, 0, u * 3, u)
+    rectY.linewidth = 0
     const group = two.makeGroup(rectX, rectY)
 
     group.fill = colors[this.color]
     group.linewidth = 0
+    group.stroke = colors[this.color]
     group.translation.set(this.x, this.y)
 
     this.group = group
@@ -64,6 +67,7 @@ class Cross {
 
     this.color -= 1
     this.group.fill = colors[this.color]
+    this.group.stroke = colors[this.color]
     this.setCycleTimeout()
   }
 
@@ -75,6 +79,7 @@ class Cross {
     if (this.insideSpotRadius && pointer.moveTimeout > 0) {
       this.color = colorHigh
       this.group.fill = colors[this.color]
+      this.group.stroke = colors[this.color]
       return
     }
 
@@ -199,6 +204,7 @@ window.addEventListener('DOMContentLoaded', () => {
   two = new Two({
     width: windowWidth,
     height: windowHeight + 100,
+    type: Two.Types.webgl,
   }).appendTo(document.querySelector('.c-two-js'))
 
   const crossSpanCount = 50
