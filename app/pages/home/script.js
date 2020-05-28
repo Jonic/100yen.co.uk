@@ -204,7 +204,7 @@ window.addEventListener('DOMContentLoaded', () => {
   two = new Two({
     width: windowWidth,
     height: windowHeight + 100,
-    type: Two.Types.webgl,
+    type: Two.Types.canvas,
   }).appendTo(document.querySelector('.c-two-js'))
 
   const crossSpanCount = 50
