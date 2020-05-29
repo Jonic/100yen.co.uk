@@ -9,7 +9,7 @@ $things = [
     'I’m&nbsp;a Senior Software Engineer at <a class="c-link" href="https://www.raspberrypi.org">Raspberry Pi</a>.',
     'I’m&nbsp;from the UK.',
     'I’m&nbsp;named after Sonic the Hedgehog.',
-    'I’m&nbsp;really good at <a class="c-link" href="/tetris">Tetris</a>.',
+    'I’m&nbsp;really good at <a class="c-link" href="/writing/tetris">Tetris</a>.',
 ];
 shuffle($things);
 ?>
@@ -24,6 +24,7 @@ shuffle($things);
     This site is a work-in-progress. More coming soon. Maybe.
     Who knows. We all just saw that bit about me having ADHD.
 </p>
+
 <p>Find me around the web, if you like:</p>
 
 <ul>

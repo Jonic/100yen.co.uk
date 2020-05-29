@@ -140,7 +140,9 @@ class TetrominoCube {
   }
 
   get cubeTexture() {
-    const texture = textureLoader.load('/app/pages/tetris/images/texture.png')
+    const texture = textureLoader.load(
+      '/app/pages/writing/tetris/images/texture.png'
+    )
 
     texture.wrapS = THREE.RepeatWrapping
     texture.wrapT = THREE.RepeatWrapping
