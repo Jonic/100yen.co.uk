@@ -142,7 +142,6 @@ class Field {
 class Pointer {
   constructor() {
     this.moveTimeout = 0
-    this.moved = false
     this.x = windowWidth / 2
     this.y = windowHeight / 2
 
@@ -162,7 +161,6 @@ class Pointer {
     }
 
     this.moveTimeout = 50
-    this.moved = true
     this.x = Math.round(event.pageX - window.pageXOffset)
     this.y = Math.round(event.pageY - window.pageYOffset)
   }
