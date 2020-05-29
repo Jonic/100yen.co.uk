@@ -17,6 +17,8 @@ if ($url == '/') {
     $path = '/home';
 }
 
+check_redirections($path);
+
 $page = new Page($path, $url);
 
 if ($page->not_found()) {
