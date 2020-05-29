@@ -9,7 +9,7 @@ $things = [
     'I’m&nbsp;a Senior Software Engineer at <a class="c-link" href="https://www.raspberrypi.org">Raspberry Pi</a>.',
     'I’m&nbsp;from the UK.',
     'I’m&nbsp;named after Sonic the Hedgehog.',
-    'I’m&nbsp;really good at <a class="c-link" href="/writing/tetris">Tetris</a>.',
+    'I’m&nbsp;really good at <a class="c-link" href="/stuff/tetris">Tetris</a>.',
 ];
 shuffle($things);
 ?>

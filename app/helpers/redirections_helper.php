@@ -1,6 +1,8 @@
 <?php
 $redirections = [
-    '/tetris' => '/writing/tetris',
+    '/tetris' => '/stuff/tetris',
+    '/stuff/wave' => '/stuff/wave/function',
+    '/stuff/wave/function' => '/stuff/wave/function/collapse'
 ];
 
 function check_redirections($path)
