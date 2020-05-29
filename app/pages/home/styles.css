@@ -1,32 +1,5 @@
-/*
-  rgb(29,  43,  83)  dark-blue
-  rgb(126, 37,  83)  dark-purple
-  rgb(0,   135, 81)  dark-green
-  rgb(95,  87,  79)  dark-gray
-  rgb(171, 82,  54)  brown
-  rgb(131, 118, 156) indigo
-  rgb(41,  173, 255) blue
-  rgb(0,   228, 54)  green
-  rgb(255, 236, 39)  yellow
-  rgb(255, 119, 168) pink
-  rgb(194, 195, 199) light-gray
-  rgb(255, 163, 0)   orange
-  rgb(255, 204, 170) peach
-  rgb(255, 0,   77)  red
-  rgb(255, 241, 232) white
-*/
-
-html {
-  background: rgb(29, 43, 83);
-}
-
 .o-page--home {
-  color: rgb(255, 241, 232);
   text-shadow: 0 0 20px #000;
-}
-
-span:lang(ja) {
-  white-space: nowrap;
 }
 
 .c-shoutout {
