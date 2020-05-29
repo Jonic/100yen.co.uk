@@ -1,0 +1,20 @@
+html {
+  background-color: #06b;
+  overflow: hidden;
+}
+
+body {
+  overflow: hidden;
+  overscroll-behavior-y: none;
+}
+
+.c-main {
+  padding: 0;
+}
+
+.c-links {
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 0 0 1rem;
+  padding: 1rem 2rem;
+  position: absolute;
+}
