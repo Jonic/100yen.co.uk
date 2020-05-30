@@ -14,7 +14,7 @@ $url = urldecode(
 $path = $url;
 
 if ($url == '/') {
-    $path = '/home';
+    $path = '/_application/home';
 }
 
 check_redirections($path);
@@ -23,7 +23,7 @@ $page = new Page($path, $url);
 
 if ($page->not_found()) {
     http_response_code(404);
-    $page = new Page('/404', $url);
+    $page = new Page('/_application/404', $url);
 }
 
 require_once ROTORS_ROOT . '/app/layouts/application.php';

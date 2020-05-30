@@ -141,7 +141,7 @@ class TetrominoCube {
 
   get cubeTexture() {
     const texture = textureLoader.load(
-      '/app/pages/stuff/tetris/images/texture.png'
+      '/app/pages/code/tetris/images/texture.png'
     )
 
     texture.wrapS = THREE.RepeatWrapping
@@ -191,7 +191,7 @@ class Tetromino {
   }
 
   setFallSpeed() {
-    return random(0.05, 0.1)
+    return random(0.05, 0.15)
   }
 
   setGroupName() {
@@ -221,7 +221,7 @@ class Tetromino {
 const tetrominoShapes = [
   {
     name: 'I',
-    color: '#FFF1E8',
+    color: '#a8e72e',
     // prettier-ignore
     matrix: [
       1, 0, 0, 0,
@@ -232,7 +232,7 @@ const tetrominoShapes = [
   },
   {
     name: 'O',
-    color: '#FFEC27',
+    color: 'rgb(255, 236, 39)',
     // prettier-ignore
     matrix: [
       1, 1, 0, 0,
@@ -243,7 +243,7 @@ const tetrominoShapes = [
   },
   {
     name: 'T',
-    color: '#FF77A8',
+    color: 'rgb(255, 204, 170)',
     // prettier-ignore
     matrix: [
       1, 1, 1, 0,
@@ -254,7 +254,7 @@ const tetrominoShapes = [
   },
   {
     name: 'S',
-    color: '#00E436',
+    color: 'rgb(0, 228, 54)',
     // prettier-ignore
     matrix: [
       0, 1, 1, 0,
@@ -265,7 +265,7 @@ const tetrominoShapes = [
   },
   {
     name: 'Z',
-    color: '#FF004D',
+    color: 'rgb(255, 0, 77)',
     // prettier-ignore
     matrix: [
       1, 1, 0, 0,
@@ -276,7 +276,7 @@ const tetrominoShapes = [
   },
   {
     name: 'J',
-    color: '#29ADFF',
+    color: 'rgb(41, 173, 255)',
     // prettier-ignore
     matrix: [
       0, 1, 0, 0,
@@ -287,7 +287,7 @@ const tetrominoShapes = [
   },
   {
     name: 'L',
-    color: '#FFA300',
+    color: 'rgb(255, 163, 0)',
     // prettier-ignore
     matrix: [
       1, 0, 0, 0,
@@ -346,10 +346,10 @@ window.addEventListener('DOMContentLoaded', () => {
     requestAnimationFrame(animate)
     tetrisBoard.update()
 
-    const rotateX = (pointer.x / windowWidth) * 2 - 1
-    const rotateY = (pointer.y / windowHeight) * 2 - 1
+    const rotateX = (pointer.x / windowWidth) * 3 - 1.5
+    const rotateY = (pointer.y / windowHeight) * 3 - 1.5
 
-    camera.position.x = rotateX
+    camera.position.x = -rotateX
     camera.position.y = rotateY
     camera.lookAt(scene.position)
 

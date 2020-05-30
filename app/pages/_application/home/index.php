@@ -9,7 +9,7 @@ $things = [
     'I’m&nbsp;a Senior Software Engineer at <a class="c-link" href="https://www.raspberrypi.org">Raspberry Pi</a>.',
     'I’m&nbsp;from the UK.',
     'I’m&nbsp;named after Sonic the Hedgehog.',
-    'I’m&nbsp;really good at <a class="c-link" href="/stuff/tetris">Tetris</a>.',
+    'I’m&nbsp;really good at <a class="c-link" href="/code/tetris">Tetris</a>.',
 ];
 shuffle($things);
 ?>
@@ -36,8 +36,14 @@ shuffle($things);
 
 <p class="c-shoutout">
     Thanks,
-    <a class="c-link" href="https://twitter.com/lexaloffle/status/1052920070316339201">Zep</a>
+    <a
+        class="c-link"
+        href="https://twitter.com/lexaloffle/status/1052920070316339201"
+    >
+        Zep
+    </a>
 </p>
 
 <div class="c-two-js"></div>
+
 <script src="https://cdn.jsdelivr.net/npm/two.js@0.7.0-stable.1/build/two.min.js"></script>
