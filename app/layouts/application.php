@@ -15,8 +15,8 @@
     </head>
 
     <body class="o-page o-page--<?php echo $page->slug ?>">
-        <?php require '_header.php' ?>
-        <?php require '_accessibility_links.php' ?>
+        <?php // require '_header.php' ?>
+        <?php // require '_accessibility_links.php' ?>
 
         <main class="c-main">
             <?php $page->yield() ?>
