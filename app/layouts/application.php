@@ -11,12 +11,12 @@
             <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
         </noscript>
 
-        <?php require '_html-head.php' ?>
+        <?php require '_meta.php' ?>
     </head>
 
     <body class="o-page o-page--<?php echo $page->slug ?>">
-        <?php // require '_accessibility-links.php' ?>
-        <?php // require '_header.php' ?>
+        <?php require '_header.php' ?>
+        <?php require '_accessibility_links.php' ?>
 
         <main class="c-main">
             <?php $page->yield() ?>
