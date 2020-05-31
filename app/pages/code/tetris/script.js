@@ -221,7 +221,7 @@ class Tetromino {
 const tetrominoShapes = [
   {
     name: 'I',
-    color: '#a8e72e',
+    color: '#40E0D0',
     // prettier-ignore
     matrix: [
       1, 0, 0, 0,
