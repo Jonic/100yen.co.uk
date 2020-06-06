@@ -10,7 +10,7 @@
   "license": "MIT",
   "scripts": {
     "build": "",
-    "start": ""
+    "start": "gulp"
   },
   "repository": {
     "type": "git",
@@ -30,6 +30,7 @@
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.3",
     "gulp": "^4.0.2",
+    "gulp-connect-php": "^1.0.3",
     "gulp-cssnano": "^2.1.3",
     "gulp-dart-sass": "^1.0.2",
     "gulp-postcss": "^8.0.0",

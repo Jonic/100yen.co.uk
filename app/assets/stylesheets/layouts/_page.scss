@@ -2,14 +2,9 @@
   position: relative;
 
   .l-page__header {
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 5rem;
+    display: none;
   }
 
   .l-page__body {
-    margin-left: 5rem;
   }
 }

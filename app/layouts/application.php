@@ -18,7 +18,7 @@
         <?php // require '_accessibility_links.php' ?>
         <div class="l-page">
             <div class="l-page__header">
-                <?php require '_header.php' ?>
+                <?php // require '_header.php' ?>
             </div>
 
             <div class="l-page__body">

@@ -1,0 +1,1 @@
+{"version":3,"sources":["styles.css"],"names":[],"mappings":"AAAA,KACE,kDAAoD,AACpD,eAAiB,CAClB,AAED,aACE,UAAW,AACX,kBAAmB,AACnB,QAAU,CACX","file":"styles.css","sourcesContent":["html {\n  background-image: linear-gradient(#340068, #9e0059);\n  overflow: hidden;\n}\n\n.c-home-link {\n  left: 2rem;\n  position: absolute;\n  top: 1rem;\n}"]}

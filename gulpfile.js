@@ -1,4 +1,5 @@
 const cssnano = require('gulp-cssnano')
+const connect = require('gulp-connect-php')
 const { dest, parallel, src, task, watch } = require('gulp')
 const rename = require('gulp-rename')
 const sass = require('gulp-dart-sass')
@@ -17,12 +18,19 @@ const compileSass = (file) => {
     .pipe(dest((file) => file.base))
 }
 
-const watchApplicationSass = () =>
+task('startServer', () => connect.server())
+
+task('watchApplicationSass', () =>
   watch(['./app/assets/stylesheets/**/*.scss']).on('change', () =>
     compileSass('app/assets/stylesheets/application.scss')
   )
+)
 
-const watchPagesSass = () =>
+task('watchPagesSass', () =>
   watch(['./app/pages/**/*.scss']).on('change', (file) => compileSass(file))
+)
 
-task('default', parallel(watchApplicationSass, watchPagesSass))
+task(
+  'default',
+  parallel('startServer', 'watchApplicationSass', 'watchPagesSass')
+)
