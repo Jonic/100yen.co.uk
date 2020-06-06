@@ -1,45 +1,28 @@
 const cssnano = require('gulp-cssnano')
-const gulp = require('gulp')
-const postcss = require('gulp-postcss')
-const postcssAutoprefixer = require('autoprefixer')
-const postcssObjectFitImages = require('postcss-object-fit-images')
+const { dest, parallel, src, task, watch } = require('gulp')
 const rename = require('gulp-rename')
 const sass = require('gulp-dart-sass')
 const sourcemaps = require('gulp-sourcemaps')
 const stripComments = require('gulp-strip-css-comments')
 
-const compileSass = (event) => {
-  const src = ''
-  const dest = ''
-
-  return gulp
-    .src(src)
+const compileSass = (file) => {
+  console.log(file)
+  return src(file)
+    .pipe(sass().on('error', (error) => console.log(error)))
     .pipe(sourcemaps.init())
-    .pipe(sass().on('error', sass.logError))
     .pipe(stripComments())
-    .pipe(
-      postcss([
-        postcssAutoprefixer({
-          flexbox: true,
-          grid: true,
-        }),
-        postcssObjectFitImages,
-      ])
-    )
     .pipe(cssnano())
-    .pipe(rename({ extname: '.min.css' }))
+    .pipe(rename({ extname: '.css' }))
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest(dest))
+    .pipe(dest((file) => file.base))
 }
 
-const watch = () => {
-  return gulp.watch(
-    ['./app/assets/sass/**/*.scss', './app/pages/**/*.scss'],
-    (event) => {
-      compileSass()
-    }
+const watchApplicationSass = () =>
+  watch(['./app/assets/stylesheets/**/*.scss']).on('change', () =>
+    compileSass('app/assets/stylesheets/application.scss')
   )
-}
 
-gulp.task('watch', watch)
-gulp.task('default', gulp.series(watch))
+const watchPagesSass = () =>
+  watch(['./app/pages/**/*.scss']).on('change', (file) => compileSass(file))
+
+task('default', parallel(watchApplicationSass, watchPagesSass))
