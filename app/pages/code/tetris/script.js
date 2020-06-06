@@ -221,7 +221,7 @@ class Tetromino {
 const tetrominoShapes = [
   {
     name: 'I',
-    color: '#40E0D0',
+    color: '#70B0FF',
     // prettier-ignore
     matrix: [
       1, 0, 0, 0,
@@ -232,7 +232,7 @@ const tetrominoShapes = [
   },
   {
     name: 'O',
-    color: 'rgb(255, 236, 39)',
+    color: '#FFE74C',
     // prettier-ignore
     matrix: [
       1, 1, 0, 0,
@@ -243,7 +243,7 @@ const tetrominoShapes = [
   },
   {
     name: 'T',
-    color: 'rgb(255, 204, 170)',
+    color: '#7741C8',
     // prettier-ignore
     matrix: [
       1, 1, 1, 0,
@@ -254,7 +254,7 @@ const tetrominoShapes = [
   },
   {
     name: 'S',
-    color: 'rgb(0, 228, 54)',
+    color: '#6BF178',
     // prettier-ignore
     matrix: [
       0, 1, 1, 0,
@@ -265,7 +265,7 @@ const tetrominoShapes = [
   },
   {
     name: 'Z',
-    color: 'rgb(255, 0, 77)',
+    color: '#FF1F2E',
     // prettier-ignore
     matrix: [
       1, 1, 0, 0,
@@ -276,7 +276,7 @@ const tetrominoShapes = [
   },
   {
     name: 'J',
-    color: 'rgb(41, 173, 255)',
+    color: '#0065E0',
     // prettier-ignore
     matrix: [
       0, 1, 0, 0,
@@ -287,7 +287,7 @@ const tetrominoShapes = [
   },
   {
     name: 'L',
-    color: 'rgb(255, 163, 0)',
+    color: '#F9A620',
     // prettier-ignore
     matrix: [
       1, 0, 0, 0,
