@@ -1,3 +1,16 @@
+const random = (low, high) => {
+  if (high === null) {
+    high = low
+    low = 0
+  }
+
+  return Math.random() * (high - low) + low
+}
+
+const randomInt = (low, high) => {
+  return Math.round(random(low, high))
+}
+
 class Pointer {
   constructor() {
     this.x = windowWidth / 2
@@ -32,29 +45,14 @@ const detectMotion = (mq) => (prefersReducedMotion = mq.matches)
 detectMotion(motionMQ)
 motionMQ.addListener(detectMotion)
 
-const updateRotation = (element, factor) => {
-  element
-}
-const pointer = new Pointer()
-
 window.addEventListener('DOMContentLoaded', () => {
-  const planesNodes = document.querySelectorAll('.plane')
-  const planes = Array.from(planesNodes)
-
   windowWidth = window.innerWidth
   windowHeight = window.innerHeight
 
+  const planesNodes = document.querySelectorAll('.plane')
+  const planes = Array.from(planesNodes)
+  const pointer = new Pointer()
   const rotationFactor = 20
-
-  // const textNodes = document.querySelectorAll('.fit-text')
-  // Array.from(textNodes).map((textNode) => {
-  //   console.log(textNode.offsetWidth / (1 * 10))
-  //   const fontSize = Math.max(
-  //     Math.min(textNode.offsetWidth / 5, parseFloat(Number.POSITIVE_INFINITY)),
-  //     parseFloat(Number.NEGATIVE_INFINITY)
-  //   )
-  //   textNode.style.fontSize = `${fontSize}rem`
-  // })
 
   const animate = () => {
     requestAnimationFrame(animate)
@@ -63,12 +61,17 @@ window.addEventListener('DOMContentLoaded', () => {
       (pointer.x / windowWidth) * rotationFactor - rotationFactor / 2
     const rotateX =
       (pointer.y / windowHeight) * rotationFactor - rotationFactor / 2
-
     let translateZ = 0
 
     planes.map((plane) => {
-      plane.style.transform = `rotateX(${-rotateX}deg) rotateY(${-rotateY}deg)
-      translate3d(-50%, -50%, ${translateZ}px)`
+      const transformValues = [
+        `rotateX(${-rotateX}deg)`,
+        `rotateY(${-rotateY}deg)`,
+        `translate3d(-50%, -50%, ${translateZ}px)`,
+      ]
+
+      plane.style.transform = transformValues.join(' ')
+
       translateZ += 50
     })
   }

@@ -38,6 +38,7 @@ body {
   position: absolute;
   text-transform: uppercase;
   top: 50vh;
+  transition: transform, 150ms ease-in-out;
 }
 
 .plane--r {
