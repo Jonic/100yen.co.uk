@@ -15,14 +15,20 @@
     </head>
 
     <body class="o-page o-page--<?php echo $page->slug ?>">
-        <?php // require '_header.php' ?>
         <?php // require '_accessibility_links.php' ?>
+        <div class="l-page">
+            <div class="l-page__header">
+                <?php require '_header.php' ?>
+            </div>
 
-        <main class="c-main">
-            <?php $page->yield() ?>
-        </main>
+            <div class="l-page__body">
+                <main class="c-main">
+                    <?php $page->yield() ?>
+                </main>
+            </div>
 
-        <?php // require '_footer.php' ?>
+            <?php // require '_footer.php' ?>
+        </div>
 
         <?php application_script(); ?>
         <?php page_script(); ?>

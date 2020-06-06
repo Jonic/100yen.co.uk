@@ -1,0 +1,49 @@
+.c-link {
+  color: rgb(255, 241, 232);
+  position: relative;
+  text-decoration: none;
+  transition-duration: 150ms;
+  transition-property: color;
+  transition-timing-function: linear;
+  white-space: nowrap;
+  z-index: 1;
+}
+
+.c-link::before {
+  background-color: rgb(41, 173, 255);
+  border-radius: 0;
+  bottom: 0.5rem;
+  content: ' ';
+  height: 0.5rem;
+  left: -0.25rem;
+  position: absolute;
+  transition-duration: 150ms;
+  transition-property: background-color border-radius bottom height left;
+  transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  width: calc(100% + 0.5rem);
+  z-index: -1;
+}
+
+.c-link:hover {
+  color: rgb(29, 43, 83);
+  text-shadow: none;
+}
+
+.c-link:visited {
+  color: rgb(255, 241, 232);
+}
+
+.c-link:visited:hover {
+  color: #000;
+  text-shadow: none;
+}
+
+.c-link:hover::before,
+.c-link:hover:visited::before {
+  background-color: rgb(255, 0, 77, 0.8);
+  border-radius: 0.5rem;
+  bottom: -0.5rem;
+  height: calc(100% + 1rem);
+  left: -1rem;
+  width: calc(100% + 2rem);
+}

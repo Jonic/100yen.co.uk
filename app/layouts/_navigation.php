@@ -1,27 +1,13 @@
 <nav class="c-nav">
     <ul class="c-nav__list">
+        <?php foreach ($nav_links as $nav_link) : ?>
         <li class="c-nav__item">
-            <a class="c-nav__link" href="#">Item</a>
+            <a
+                class="<?php echo nav_link_classnames($nav_link) ?>"
+                href="<?php echo $nav_link['path'] ?>"
+            ><?php echo $nav_link['text'] ?></a>
         </li>
-
-        <li class="c-nav__item">
-            <a class="c-nav__link" href="#">Item</a>
-        </li>
-
-        <li class="c-nav__item">
-            <a class="c-nav__link" href="#">Item</a>
-        </li>
-
-        <li class="c-nav__item">
-            <a class="c-nav__link" href="#">Item</a>
-        </li>
-
-        <li class="c-nav__item">
-            <a class="c-nav__link" href="#">Item</a>
-        </li>
-
-        <li class="c-nav__item">
-            <a class="c-nav__link" href="#">Item</a>
-        </li>
+        <?php endforeach ?>
     </ul>
 </nav>
+

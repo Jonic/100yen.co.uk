@@ -3,12 +3,12 @@ global $config;
 
 function application_script()
 {
-    echo script('/app/assets/javascripts/master.js');
+    echo script('/app/assets/javascripts/application.js');
 }
 
 function application_styles()
 {
-    echo styles('/app/assets/stylesheets/master.css');
+    echo styles('/app/assets/stylesheets/application.css');
 }
 
 function page_script()

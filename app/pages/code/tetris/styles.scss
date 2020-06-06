@@ -1,0 +1,19 @@
+html {
+  background-image: radial-gradient(#222, #111);
+  overflow: hidden;
+}
+
+body {
+  overflow: hidden;
+  overscroll-behavior-y: none;
+}
+
+.c-main {
+  padding: 0;
+}
+
+.c-home-link {
+  left: 2rem;
+  position: absolute;
+  top: 1rem;
+}
