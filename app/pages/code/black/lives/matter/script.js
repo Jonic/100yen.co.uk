@@ -66,7 +66,7 @@ window.addEventListener('DOMContentLoaded', () => {
     planes.map((plane) => {
       const transformValues = [
         `rotateX(${rotateX}deg)`,
-        `rotateY(${-rotateY}deg)`,
+        `rotateY(${rotateY}deg)`,
         `translate3d(-50%, -50%, ${translateZ}px)`,
       ]
 
