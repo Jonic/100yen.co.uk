@@ -2,6 +2,10 @@
     <a class="c-link" href="/">Home</a>
     /
     <a class="c-link" href="/code">Code</a>
+    &nbsp;—&nbsp;
+    <a class="c-link" href="https://blacklivesmatter.carrd.co/">
+        How to help #BlackLivesMatter
+    </a>
 </div>
 
 <div class="scene">
