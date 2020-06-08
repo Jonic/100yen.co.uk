@@ -2,9 +2,13 @@
     <a class="c-link" href="/">Home</a>
     /
     <a class="c-link" href="/code">Code</a>
-    &nbsp;—&nbsp;
+    <br />
     <a class="c-link" href="https://blacklivesmatter.carrd.co/">
         How to help #BlackLivesMatter
+    </a>
+    <br />
+    <a class="c-link" href="https://bit.ly/junejustice">
+        Justice in June
     </a>
 </div>
 
