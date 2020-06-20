@@ -1,18 +1,13 @@
 <?php
-$日本語 = <<<'EOD'
-<ruby>
-    <rb>日本語</rb>
-    <rp>(</rp>
-    <rt>にほんご</rt>
-    <rp>)</rp>
-</ruby>を　<ruby>
-    <rb>勉強</rb>
-    <rp>(</rp>
-    <rt>べんきょう
-    </rt>
-    <rp>)</rp>
-</ruby>しています。
-EOD;
+$日本語 = join(
+    '',
+    [
+        ruby('日本語', 'にほんご'),
+        'を　',
+        ruby('勉強', 'べんきょう'),
+        'しています。'
+    ]
+);
 
 $things = [
     '<span lang="ja">' . $日本語 . '</span>',
