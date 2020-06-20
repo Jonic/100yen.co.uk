@@ -1,6 +1,21 @@
 <?php
+$日本語 = <<<'EOD'
+<ruby>
+    <rb>日本語</rb>
+    <rp>(</rp>
+    <rt>にほんご</rt>
+    <rp>)</rp>
+</ruby>を　<ruby>
+    <rb>勉強</rb>
+    <rp>(</rp>
+    <rt>べんきょう
+    </rt>
+    <rp>)</rp>
+</ruby>しています。
+EOD;
+
 $things = [
-    '<span lang="ja">日本語を　勉強しています。</span>',
+    '<span lang="ja">' . $日本語 . '</span>',
     'I&nbsp;have ADHD.',
     'I&nbsp;like to make things with <a class="c-link" href="/code">code</a>.',
     'I&nbsp;made <a class="c-link" href="https://jonic.itch.io/knifey-spoony">a video game</a> one time.',
