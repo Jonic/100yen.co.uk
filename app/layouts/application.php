@@ -12,6 +12,8 @@
         </noscript>
 
         <?php require '_meta.php' ?>
+
+        <script src="https://cdn.usefathom.com/script.js" site="QIHHKZBD" defer></script>
     </head>
 
     <body class="o-page o-page--<?php echo $page->slug ?>">
