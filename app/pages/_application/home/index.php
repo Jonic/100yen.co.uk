@@ -15,7 +15,7 @@ $things = [
     'I&nbsp;like to make things with <a class="c-link" href="/code">code</a>.',
     'I&nbsp;made <a class="c-link" href="https://jonic.itch.io/knifey-spoony">a video game</a> one time.',
     'I&nbsp;sing, and play guitar, drums, and piano.',
-    'I&nbsp;sometimes make things out of electronics.',
+    'I&nbsp;take photos on film, with toy cameras.',
     'I’m&nbsp;a Staff Software Engineer at <a class="c-link" href="https://patchwork.health">Patchwork Health</a> (previously <a class="c-link" href="https://www.raspberrypi.org">Raspberry Pi</a>).',
     'I’m&nbsp;from the UK.',
     'I’m&nbsp;named after Sonic the Hedgehog.',
